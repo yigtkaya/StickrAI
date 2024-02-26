@@ -12,8 +12,8 @@ import 'package:stickerai/src/shared/constants/app_design_constant.dart';
 import 'package:stickerai/src/shared/dialog/app_dialog.dart';
 import 'package:stickerai/src/shared/observer/custom_route_observer.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import 'package:stickerai/localization/app_localizations.dart';
+import 'package:stickerai/features/landing/presentation/landing_page.dart';
 
 final GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -86,10 +86,10 @@ class App extends ConsumerWidget {
               );
             },
             home: app.map(
-              notAuthorized: (_) => LoginPage(),
-              authorized: (_) => SignUpPage(),
-              error: (_) => const ExceptionOnAppLaunch(),
-              loading: (_) => const FullBlackLoader(),
+              notAuthorized: (_) => const LandingPage(),
+              authorized: (_) => const LandingPage(),
+              error: (_) => const LandingPage(),
+              loading: (_) => const LandingPage(),
               jailbroken: (value) {
                 return Builder(
                   builder: (context) {

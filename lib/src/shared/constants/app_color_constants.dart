@@ -20,5 +20,6 @@ class AppColors {
   static const semanticRed1 = Color(0xffF6BCBC);
   static const semanticRed2 = Color(0xffaf4848);
   static const splashBackground = Color(0xFFFCFCFC);
-  static const lightColor = Color(0xFFce70a9);
+  static const lightColor = Color(0xFFFDB7E1);
+  static const greyBackground = Color(0xFF252527);
 }

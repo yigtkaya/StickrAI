@@ -12,7 +12,7 @@ part of 'app_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AppState {
@@ -521,10 +521,10 @@ class __$$AppStateNeedsUpdateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? storeInfo = freezed,
+    Object? storeInfo = null,
   }) {
     return _then(_$AppStateNeedsUpdateImpl(
-      storeInfo: freezed == storeInfo
+      storeInfo: null == storeInfo
           ? _value.storeInfo
           : storeInfo // ignore: cast_nullable_to_non_nullable
               as StoreInfo,
@@ -550,12 +550,12 @@ class _$AppStateNeedsUpdateImpl implements AppStateNeedsUpdate {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppStateNeedsUpdateImpl &&
-            const DeepCollectionEquality().equals(other.storeInfo, storeInfo));
+            (identical(other.storeInfo, storeInfo) ||
+                other.storeInfo == storeInfo));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(storeInfo));
+  int get hashCode => Object.hash(runtimeType, storeInfo);
 
   @JsonKey(ignore: true)
   @override

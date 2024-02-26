@@ -18,4 +18,5 @@ String? emailValidator(value) {
   }
   return null;
 }
+
 /// TODO : Add phone validator

@@ -15,5 +15,6 @@ class HTIcons {
 }
 
 class HTImages {
-  final String touristGuide = AssetConstants.toJpg("tour_guide");
+  final String cuteCatExample = AssetConstants.toPng("cute_cat_example");
+  final String cuteCatExample2 = AssetConstants.toPng("cute_cat_example_2");
 }
