@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:stickerai/src/shared/styles/text_styles.dart';
+import 'package:stickerai/src/shared/constants/app_color_constants.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   final int defaultSelectedIndex;
@@ -28,121 +28,51 @@ class CustomBottomNavBarState extends State<CustomBottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey,
-            blurRadius: 2.r,
-            offset: const Offset(0, -1),
-          ),
-        ],
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(4.r),
-          topRight: Radius.circular(4.r),
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.all(12.h),
+        height: 60.h,
+        margin: EdgeInsets.symmetric(horizontal: 16.w),
+        decoration: BoxDecoration(
+          color: AppColors.greyBackground.withOpacity(0.8),
+          borderRadius: BorderRadius.circular(18.r),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.greyBackground.withOpacity(0.2),
+              blurRadius: 20,
+              offset: const Offset(0, 20),
+            ),
+          ],
         ),
-      ),
-      child: Padding(
-        padding: EdgeInsets.all(12.0.r),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-              child: Container(
-                child: _selectedIndex == 0
-                    ? Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              widget.onChange(0);
-                              setState(() {
-                                _selectedIndex = 0;
-                              });
-                            },
-                            icon: Icon(
-                              LucideIcons.sticker,
-                              size: 24.h,
-                            ),
-                          ),
-                          Flexible(
-                            child: Text(
-                              "context.l10n.explore",
-                              style: TextStyles.buttonSmall,
-                            ),
-                          ),
-                        ],
-                      )
-                    : Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              widget.onChange(0);
-                              setState(() {
-                                _selectedIndex = 0;
-                              });
-                            },
-                            icon: Icon(
-                              LucideIcons.sticker,
-                              size: 24.h,
-                              color: Colors.grey,
-                            ),
-                          ),
-                          Flexible(
-                            child: Text(
-                              "context.l10n.explore",
-                              style: TextStyles.buttonSmall,
-                            ),
-                          ),
-                        ],
-                      ),
+              child: GestureDetector(
+                onTap: () {
+                  widget.onChange(0);
+                  setState(() {
+                    _selectedIndex = 0;
+                  });
+                },
+                child: Icon(
+                  LucideIcons.sticker,
+                  color: _selectedIndex != 0 ? Colors.grey : AppColors.neutralWhite,
+                ),
               ),
             ),
             Expanded(
               child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
                 onTap: () {
                   widget.onChange(1);
                   setState(() {
                     _selectedIndex = 1;
                   });
                 },
-                child: Container(
-                    child: _selectedIndex == 1
-                        ? Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                LucideIcons.sticky_note,
-                                size: 24.h,
-                              ),
-                              Flexible(
-                                child: Text(
-                                  "context.l10n.cart",
-                                  style: TextStyles.buttonSmall,
-                                ),
-                              ),
-                            ],
-                          )
-                        : Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                LucideIcons.sticky_note,
-                                size: 24.h,
-                                color: Colors.grey,
-                              ),
-                              Flexible(
-                                child: Text(
-                                  "context.l10n.cart",
-                                  style: TextStyles.buttonSmall,
-                                ),
-                              ),
-                            ],
-                          )),
+                child: Icon(
+                  LucideIcons.layout_list,
+                  color: _selectedIndex != 1 ? Colors.grey : AppColors.neutralWhite,
+                ),
               ),
             ),
           ],
