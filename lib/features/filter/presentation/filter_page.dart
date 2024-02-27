@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
@@ -51,14 +50,14 @@ class FilterPage extends StatelessWidget {
           ),
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              LucideIcons.info,
-              size: 28.h,
-              color: Colors.white,
-            ),
-          ),
+          // IconButton(
+          //   onPressed: () {},
+          //   icon: Icon(
+          //     LucideIcons.info,
+          //     size: 28.h,
+          //     color: Colors.white,
+          //   ),
+          // ),
         ],
       ),
       body: SingleChildScrollView(
@@ -72,7 +71,7 @@ class FilterPage extends StatelessWidget {
                 "Advanced Settings",
                 style: TextStyle(color: Colors.white, fontSize: 24.sp),
               ),
-              24.rH,
+              20.rH,
               IntrinsicHeight(
                 child: Row(
                   children: [
@@ -350,15 +349,21 @@ class FilterPage extends StatelessWidget {
                           color: AppColors.lightColor,
                           fontSize: 18.sp,
                         ),
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           border: InputBorder.none,
+                          hintText: "Things you do not want in the sticker",
+                          hintStyle: TextStyle(
+                            color: Colors.white60,
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
-              32.rH,
+              36.rH,
               CustomTextField(
                 controller: promptTextController,
                 hint: "A cute cat",
@@ -391,6 +396,7 @@ class FilterPage extends StatelessWidget {
                   ),
                 ),
               ),
+              70.rH,
             ],
           ),
         ),

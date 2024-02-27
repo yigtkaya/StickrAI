@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 import 'package:stickerai/features/filter/presentation/filter_page.dart';
+import 'package:stickerai/features/generated_image/presentation/generated_image_page.dart';
 import 'package:stickerai/features/landing/providers/landing_providers.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
 import 'package:stickerai/src/shared/constants/asset_constants.dart';
@@ -50,7 +50,9 @@ class _LandingPageState extends ConsumerState<LandingPage> {
         backgroundColor: Colors.transparent,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              // wolt modal bottom sheet
+            },
             icon: Icon(
               LucideIcons.settings,
               size: 28.h,
@@ -129,21 +131,6 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                 hint: "A cute cat",
               ),
               24.rH,
-              Text(
-                "Things you do not want in the sticker",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 21.sp,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              12.rH,
-              CustomTextField(
-                controller: _negativePromptTextController,
-                hint: "Optional",
-              ),
-              24.rH,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -151,6 +138,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                     onTap: () {
                       // günlük sınır 3 adet olacak şekilde kontrol yapılacak
                       // subscription kontrolü yapılacak
+                      context.push(GeneratedStickerPage.route());
                     },
                     behavior: HitTestBehavior.opaque,
                     child: Container(
@@ -175,7 +163,11 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                     decoration: const BoxDecoration(
                       border: GradientBoxBorder(
                         gradient: LinearGradient(
-                          colors: [Colors.orangeAccent, Color.fromARGB(255, 236, 104, 104), Colors.purpleAccent],
+                          colors: [
+                            Colors.orangeAccent,
+                            Color.fromARGB(255, 236, 104, 104),
+                            Colors.purpleAccent,
+                          ],
                         ),
                         width: 2,
                       ),
