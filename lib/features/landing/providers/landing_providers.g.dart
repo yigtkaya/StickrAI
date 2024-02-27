@@ -6,33 +6,27 @@ part of 'landing_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$promptTextHash() => r'14c10143c8d8fd018c5bf9ec153f3ac39148d5e6';
+String _$promptTextHash() => r'b28efaf1e8ce0c141831ff82491ffbc8f4d5321f';
 
 /// See also [PromptText].
 @ProviderFor(PromptText)
-final promptTextProvider =
-    AutoDisposeNotifierProvider<PromptText, String>.internal(
+final promptTextProvider = AutoDisposeNotifierProvider<PromptText, String>.internal(
   PromptText.new,
   name: r'promptTextProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$promptTextHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product') ? null : _$promptTextHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
 typedef _$PromptText = AutoDisposeNotifier<String>;
-String _$negativePromptTextHash() =>
-    r'0482ba5e0a833747e2916923cab55c885b8107e4';
+String _$negativePromptTextHash() => r'6263f925e188dd6bf768b55d7607f8e03c530d4d';
 
 /// See also [NegativePromptText].
 @ProviderFor(NegativePromptText)
-final negativePromptTextProvider =
-    AutoDisposeNotifierProvider<NegativePromptText, String>.internal(
+final negativePromptTextProvider = AutoDisposeNotifierProvider<NegativePromptText, String>.internal(
   NegativePromptText.new,
   name: r'negativePromptTextProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$negativePromptTextHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product') ? null : _$negativePromptTextHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

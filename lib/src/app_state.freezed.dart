@@ -23,8 +23,7 @@ mixin _$AppState {
     required TResult Function() notAuthorized,
     required TResult Function(StoreInfo storeInfo) needsUpdate,
     required TResult Function() jailbroken,
-    required TResult Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)
+    required TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)
         authorized,
   }) =>
       throw _privateConstructorUsedError;
@@ -35,9 +34,7 @@ mixin _$AppState {
     TResult? Function()? notAuthorized,
     TResult? Function(StoreInfo storeInfo)? needsUpdate,
     TResult? Function()? jailbroken,
-    TResult? Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)?
-        authorized,
+    TResult? Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +44,7 @@ mixin _$AppState {
     TResult Function()? notAuthorized,
     TResult Function(StoreInfo storeInfo)? needsUpdate,
     TResult Function()? jailbroken,
-    TResult Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)?
-        authorized,
+    TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -88,13 +83,11 @@ mixin _$AppState {
 
 /// @nodoc
 abstract class $AppStateCopyWith<$Res> {
-  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
-      _$AppStateCopyWithImpl<$Res, AppState>;
+  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) = _$AppStateCopyWithImpl<$Res, AppState>;
 }
 
 /// @nodoc
-class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
-    implements $AppStateCopyWith<$Res> {
+class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCopyWith<$Res> {
   _$AppStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -105,17 +98,14 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
 
 /// @nodoc
 abstract class _$$AppStateErrorImplCopyWith<$Res> {
-  factory _$$AppStateErrorImplCopyWith(
-          _$AppStateErrorImpl value, $Res Function(_$AppStateErrorImpl) then) =
+  factory _$$AppStateErrorImplCopyWith(_$AppStateErrorImpl value, $Res Function(_$AppStateErrorImpl) then) =
       __$$AppStateErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AppStateErrorImplCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$AppStateErrorImpl>
+class __$$AppStateErrorImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppStateErrorImpl>
     implements _$$AppStateErrorImplCopyWith<$Res> {
-  __$$AppStateErrorImplCopyWithImpl(
-      _$AppStateErrorImpl _value, $Res Function(_$AppStateErrorImpl) _then)
+  __$$AppStateErrorImplCopyWithImpl(_$AppStateErrorImpl _value, $Res Function(_$AppStateErrorImpl) _then)
       : super(_value, _then);
 }
 
@@ -131,8 +121,7 @@ class _$AppStateErrorImpl implements AppStateError {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AppStateErrorImpl);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$AppStateErrorImpl);
   }
 
   @override
@@ -146,8 +135,7 @@ class _$AppStateErrorImpl implements AppStateError {
     required TResult Function() notAuthorized,
     required TResult Function(StoreInfo storeInfo) needsUpdate,
     required TResult Function() jailbroken,
-    required TResult Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)
+    required TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)
         authorized,
   }) {
     return error();
@@ -161,9 +149,7 @@ class _$AppStateErrorImpl implements AppStateError {
     TResult? Function()? notAuthorized,
     TResult? Function(StoreInfo storeInfo)? needsUpdate,
     TResult? Function()? jailbroken,
-    TResult? Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)?
-        authorized,
+    TResult? Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
   }) {
     return error?.call();
   }
@@ -176,9 +162,7 @@ class _$AppStateErrorImpl implements AppStateError {
     TResult Function()? notAuthorized,
     TResult Function(StoreInfo storeInfo)? needsUpdate,
     TResult Function()? jailbroken,
-    TResult Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)?
-        authorized,
+    TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -237,17 +221,14 @@ abstract class AppStateError implements AppState {
 
 /// @nodoc
 abstract class _$$AppStateLoadingImplCopyWith<$Res> {
-  factory _$$AppStateLoadingImplCopyWith(_$AppStateLoadingImpl value,
-          $Res Function(_$AppStateLoadingImpl) then) =
+  factory _$$AppStateLoadingImplCopyWith(_$AppStateLoadingImpl value, $Res Function(_$AppStateLoadingImpl) then) =
       __$$AppStateLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AppStateLoadingImplCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$AppStateLoadingImpl>
+class __$$AppStateLoadingImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppStateLoadingImpl>
     implements _$$AppStateLoadingImplCopyWith<$Res> {
-  __$$AppStateLoadingImplCopyWithImpl(
-      _$AppStateLoadingImpl _value, $Res Function(_$AppStateLoadingImpl) _then)
+  __$$AppStateLoadingImplCopyWithImpl(_$AppStateLoadingImpl _value, $Res Function(_$AppStateLoadingImpl) _then)
       : super(_value, _then);
 }
 
@@ -263,8 +244,7 @@ class _$AppStateLoadingImpl implements _AppStateLoading {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AppStateLoadingImpl);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$AppStateLoadingImpl);
   }
 
   @override
@@ -278,8 +258,7 @@ class _$AppStateLoadingImpl implements _AppStateLoading {
     required TResult Function() notAuthorized,
     required TResult Function(StoreInfo storeInfo) needsUpdate,
     required TResult Function() jailbroken,
-    required TResult Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)
+    required TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)
         authorized,
   }) {
     return loading();
@@ -293,9 +272,7 @@ class _$AppStateLoadingImpl implements _AppStateLoading {
     TResult? Function()? notAuthorized,
     TResult? Function(StoreInfo storeInfo)? needsUpdate,
     TResult? Function()? jailbroken,
-    TResult? Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)?
-        authorized,
+    TResult? Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
   }) {
     return loading?.call();
   }
@@ -308,9 +285,7 @@ class _$AppStateLoadingImpl implements _AppStateLoading {
     TResult Function()? notAuthorized,
     TResult Function(StoreInfo storeInfo)? needsUpdate,
     TResult Function()? jailbroken,
-    TResult Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)?
-        authorized,
+    TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -370,17 +345,15 @@ abstract class _AppStateLoading implements AppState {
 /// @nodoc
 abstract class _$$AppStateNotAuthorizedImplCopyWith<$Res> {
   factory _$$AppStateNotAuthorizedImplCopyWith(
-          _$AppStateNotAuthorizedImpl value,
-          $Res Function(_$AppStateNotAuthorizedImpl) then) =
+          _$AppStateNotAuthorizedImpl value, $Res Function(_$AppStateNotAuthorizedImpl) then) =
       __$$AppStateNotAuthorizedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AppStateNotAuthorizedImplCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$AppStateNotAuthorizedImpl>
+class __$$AppStateNotAuthorizedImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppStateNotAuthorizedImpl>
     implements _$$AppStateNotAuthorizedImplCopyWith<$Res> {
-  __$$AppStateNotAuthorizedImplCopyWithImpl(_$AppStateNotAuthorizedImpl _value,
-      $Res Function(_$AppStateNotAuthorizedImpl) _then)
+  __$$AppStateNotAuthorizedImplCopyWithImpl(
+      _$AppStateNotAuthorizedImpl _value, $Res Function(_$AppStateNotAuthorizedImpl) _then)
       : super(_value, _then);
 }
 
@@ -396,9 +369,7 @@ class _$AppStateNotAuthorizedImpl implements _AppStateNotAuthorized {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AppStateNotAuthorizedImpl);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$AppStateNotAuthorizedImpl);
   }
 
   @override
@@ -412,8 +383,7 @@ class _$AppStateNotAuthorizedImpl implements _AppStateNotAuthorized {
     required TResult Function() notAuthorized,
     required TResult Function(StoreInfo storeInfo) needsUpdate,
     required TResult Function() jailbroken,
-    required TResult Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)
+    required TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)
         authorized,
   }) {
     return notAuthorized();
@@ -427,9 +397,7 @@ class _$AppStateNotAuthorizedImpl implements _AppStateNotAuthorized {
     TResult? Function()? notAuthorized,
     TResult? Function(StoreInfo storeInfo)? needsUpdate,
     TResult? Function()? jailbroken,
-    TResult? Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)?
-        authorized,
+    TResult? Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
   }) {
     return notAuthorized?.call();
   }
@@ -442,9 +410,7 @@ class _$AppStateNotAuthorizedImpl implements _AppStateNotAuthorized {
     TResult Function()? notAuthorized,
     TResult Function(StoreInfo storeInfo)? needsUpdate,
     TResult Function()? jailbroken,
-    TResult Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)?
-        authorized,
+    TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
     required TResult orElse(),
   }) {
     if (notAuthorized != null) {
@@ -503,19 +469,18 @@ abstract class _AppStateNotAuthorized implements AppState {
 
 /// @nodoc
 abstract class _$$AppStateNeedsUpdateImplCopyWith<$Res> {
-  factory _$$AppStateNeedsUpdateImplCopyWith(_$AppStateNeedsUpdateImpl value,
-          $Res Function(_$AppStateNeedsUpdateImpl) then) =
+  factory _$$AppStateNeedsUpdateImplCopyWith(
+          _$AppStateNeedsUpdateImpl value, $Res Function(_$AppStateNeedsUpdateImpl) then) =
       __$$AppStateNeedsUpdateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({StoreInfo storeInfo});
 }
 
 /// @nodoc
-class __$$AppStateNeedsUpdateImplCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$AppStateNeedsUpdateImpl>
+class __$$AppStateNeedsUpdateImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppStateNeedsUpdateImpl>
     implements _$$AppStateNeedsUpdateImplCopyWith<$Res> {
-  __$$AppStateNeedsUpdateImplCopyWithImpl(_$AppStateNeedsUpdateImpl _value,
-      $Res Function(_$AppStateNeedsUpdateImpl) _then)
+  __$$AppStateNeedsUpdateImplCopyWithImpl(
+      _$AppStateNeedsUpdateImpl _value, $Res Function(_$AppStateNeedsUpdateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -550,8 +515,7 @@ class _$AppStateNeedsUpdateImpl implements AppStateNeedsUpdate {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppStateNeedsUpdateImpl &&
-            (identical(other.storeInfo, storeInfo) ||
-                other.storeInfo == storeInfo));
+            (identical(other.storeInfo, storeInfo) || other.storeInfo == storeInfo));
   }
 
   @override
@@ -561,8 +525,7 @@ class _$AppStateNeedsUpdateImpl implements AppStateNeedsUpdate {
   @override
   @pragma('vm:prefer-inline')
   _$$AppStateNeedsUpdateImplCopyWith<_$AppStateNeedsUpdateImpl> get copyWith =>
-      __$$AppStateNeedsUpdateImplCopyWithImpl<_$AppStateNeedsUpdateImpl>(
-          this, _$identity);
+      __$$AppStateNeedsUpdateImplCopyWithImpl<_$AppStateNeedsUpdateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -572,8 +535,7 @@ class _$AppStateNeedsUpdateImpl implements AppStateNeedsUpdate {
     required TResult Function() notAuthorized,
     required TResult Function(StoreInfo storeInfo) needsUpdate,
     required TResult Function() jailbroken,
-    required TResult Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)
+    required TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)
         authorized,
   }) {
     return needsUpdate(storeInfo);
@@ -587,9 +549,7 @@ class _$AppStateNeedsUpdateImpl implements AppStateNeedsUpdate {
     TResult? Function()? notAuthorized,
     TResult? Function(StoreInfo storeInfo)? needsUpdate,
     TResult? Function()? jailbroken,
-    TResult? Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)?
-        authorized,
+    TResult? Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
   }) {
     return needsUpdate?.call(storeInfo);
   }
@@ -602,9 +562,7 @@ class _$AppStateNeedsUpdateImpl implements AppStateNeedsUpdate {
     TResult Function()? notAuthorized,
     TResult Function(StoreInfo storeInfo)? needsUpdate,
     TResult Function()? jailbroken,
-    TResult Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)?
-        authorized,
+    TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
     required TResult orElse(),
   }) {
     if (needsUpdate != null) {
@@ -658,28 +616,24 @@ class _$AppStateNeedsUpdateImpl implements AppStateNeedsUpdate {
 }
 
 abstract class AppStateNeedsUpdate implements AppState {
-  const factory AppStateNeedsUpdate({required final StoreInfo storeInfo}) =
-      _$AppStateNeedsUpdateImpl;
+  const factory AppStateNeedsUpdate({required final StoreInfo storeInfo}) = _$AppStateNeedsUpdateImpl;
 
   StoreInfo get storeInfo;
   @JsonKey(ignore: true)
-  _$$AppStateNeedsUpdateImplCopyWith<_$AppStateNeedsUpdateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$AppStateNeedsUpdateImplCopyWith<_$AppStateNeedsUpdateImpl> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$AppStateJailbrokenImplCopyWith<$Res> {
-  factory _$$AppStateJailbrokenImplCopyWith(_$AppStateJailbrokenImpl value,
-          $Res Function(_$AppStateJailbrokenImpl) then) =
+  factory _$$AppStateJailbrokenImplCopyWith(
+          _$AppStateJailbrokenImpl value, $Res Function(_$AppStateJailbrokenImpl) then) =
       __$$AppStateJailbrokenImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AppStateJailbrokenImplCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$AppStateJailbrokenImpl>
+class __$$AppStateJailbrokenImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppStateJailbrokenImpl>
     implements _$$AppStateJailbrokenImplCopyWith<$Res> {
-  __$$AppStateJailbrokenImplCopyWithImpl(_$AppStateJailbrokenImpl _value,
-      $Res Function(_$AppStateJailbrokenImpl) _then)
+  __$$AppStateJailbrokenImplCopyWithImpl(_$AppStateJailbrokenImpl _value, $Res Function(_$AppStateJailbrokenImpl) _then)
       : super(_value, _then);
 }
 
@@ -695,8 +649,7 @@ class _$AppStateJailbrokenImpl implements AppStateJailbroken {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AppStateJailbrokenImpl);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$AppStateJailbrokenImpl);
   }
 
   @override
@@ -710,8 +663,7 @@ class _$AppStateJailbrokenImpl implements AppStateJailbroken {
     required TResult Function() notAuthorized,
     required TResult Function(StoreInfo storeInfo) needsUpdate,
     required TResult Function() jailbroken,
-    required TResult Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)
+    required TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)
         authorized,
   }) {
     return jailbroken();
@@ -725,9 +677,7 @@ class _$AppStateJailbrokenImpl implements AppStateJailbroken {
     TResult? Function()? notAuthorized,
     TResult? Function(StoreInfo storeInfo)? needsUpdate,
     TResult? Function()? jailbroken,
-    TResult? Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)?
-        authorized,
+    TResult? Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
   }) {
     return jailbroken?.call();
   }
@@ -740,9 +690,7 @@ class _$AppStateJailbrokenImpl implements AppStateJailbroken {
     TResult Function()? notAuthorized,
     TResult Function(StoreInfo storeInfo)? needsUpdate,
     TResult Function()? jailbroken,
-    TResult Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)?
-        authorized,
+    TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
     required TResult orElse(),
   }) {
     if (jailbroken != null) {
@@ -801,23 +749,17 @@ abstract class AppStateJailbroken implements AppState {
 
 /// @nodoc
 abstract class _$$AppStateAuthorizedImplCopyWith<$Res> {
-  factory _$$AppStateAuthorizedImplCopyWith(_$AppStateAuthorizedImpl value,
-          $Res Function(_$AppStateAuthorizedImpl) then) =
+  factory _$$AppStateAuthorizedImplCopyWith(
+          _$AppStateAuthorizedImpl value, $Res Function(_$AppStateAuthorizedImpl) then) =
       __$$AppStateAuthorizedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {String token,
-      String refreshToken,
-      String refreshTokenExpiration,
-      String userId});
+  $Res call({String token, String refreshToken, String refreshTokenExpiration, String userId});
 }
 
 /// @nodoc
-class __$$AppStateAuthorizedImplCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$AppStateAuthorizedImpl>
+class __$$AppStateAuthorizedImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppStateAuthorizedImpl>
     implements _$$AppStateAuthorizedImplCopyWith<$Res> {
-  __$$AppStateAuthorizedImplCopyWithImpl(_$AppStateAuthorizedImpl _value,
-      $Res Function(_$AppStateAuthorizedImpl) _then)
+  __$$AppStateAuthorizedImplCopyWithImpl(_$AppStateAuthorizedImpl _value, $Res Function(_$AppStateAuthorizedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -853,10 +795,7 @@ class __$$AppStateAuthorizedImplCopyWithImpl<$Res>
 
 class _$AppStateAuthorizedImpl implements AppStateAuthorized {
   const _$AppStateAuthorizedImpl(
-      {required this.token,
-      required this.refreshToken,
-      required this.refreshTokenExpiration,
-      required this.userId});
+      {required this.token, required this.refreshToken, required this.refreshTokenExpiration, required this.userId});
 
   @override
   final String token;
@@ -878,23 +817,20 @@ class _$AppStateAuthorizedImpl implements AppStateAuthorized {
         (other.runtimeType == runtimeType &&
             other is _$AppStateAuthorizedImpl &&
             (identical(other.token, token) || other.token == token) &&
-            (identical(other.refreshToken, refreshToken) ||
-                other.refreshToken == refreshToken) &&
+            (identical(other.refreshToken, refreshToken) || other.refreshToken == refreshToken) &&
             (identical(other.refreshTokenExpiration, refreshTokenExpiration) ||
                 other.refreshTokenExpiration == refreshTokenExpiration) &&
             (identical(other.userId, userId) || other.userId == userId));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, token, refreshToken, refreshTokenExpiration, userId);
+  int get hashCode => Object.hash(runtimeType, token, refreshToken, refreshTokenExpiration, userId);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AppStateAuthorizedImplCopyWith<_$AppStateAuthorizedImpl> get copyWith =>
-      __$$AppStateAuthorizedImplCopyWithImpl<_$AppStateAuthorizedImpl>(
-          this, _$identity);
+      __$$AppStateAuthorizedImplCopyWithImpl<_$AppStateAuthorizedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -904,8 +840,7 @@ class _$AppStateAuthorizedImpl implements AppStateAuthorized {
     required TResult Function() notAuthorized,
     required TResult Function(StoreInfo storeInfo) needsUpdate,
     required TResult Function() jailbroken,
-    required TResult Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)
+    required TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)
         authorized,
   }) {
     return authorized(token, refreshToken, refreshTokenExpiration, userId);
@@ -919,12 +854,9 @@ class _$AppStateAuthorizedImpl implements AppStateAuthorized {
     TResult? Function()? notAuthorized,
     TResult? Function(StoreInfo storeInfo)? needsUpdate,
     TResult? Function()? jailbroken,
-    TResult? Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)?
-        authorized,
+    TResult? Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
   }) {
-    return authorized?.call(
-        token, refreshToken, refreshTokenExpiration, userId);
+    return authorized?.call(token, refreshToken, refreshTokenExpiration, userId);
   }
 
   @override
@@ -935,9 +867,7 @@ class _$AppStateAuthorizedImpl implements AppStateAuthorized {
     TResult Function()? notAuthorized,
     TResult Function(StoreInfo storeInfo)? needsUpdate,
     TResult Function()? jailbroken,
-    TResult Function(String token, String refreshToken,
-            String refreshTokenExpiration, String userId)?
-        authorized,
+    TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
     required TResult orElse(),
   }) {
     if (authorized != null) {
@@ -1002,6 +932,5 @@ abstract class AppStateAuthorized implements AppState {
   String get refreshTokenExpiration;
   String get userId;
   @JsonKey(ignore: true)
-  _$$AppStateAuthorizedImplCopyWith<_$AppStateAuthorizedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$AppStateAuthorizedImplCopyWith<_$AppStateAuthorizedImpl> get copyWith => throw _privateConstructorUsedError;
 }

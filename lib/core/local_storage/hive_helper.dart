@@ -4,6 +4,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:stickerai/core/local_storage/local_storage.dart';
 import 'package:stickerai/core/local_storage/storage_key.dart';
+
 /// use box names to create different env storages
 enum BoxName {
   generalBox,

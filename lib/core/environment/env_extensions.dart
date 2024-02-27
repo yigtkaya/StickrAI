@@ -1,4 +1,3 @@
-
 import 'package:stickerai/core/environment/environment.dart';
 
 extension EnvExt on Environment {

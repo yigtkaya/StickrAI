@@ -11,14 +11,14 @@ import 'package:stickerai/src/shared/observer/custom_route_observer.dart';
 
 void main() async {
   await runZonedGuarded(
-        () async {
+    () async {
       final networkDependencies = await setupDI(privateEnv: ProductionEnvironment());
       runApp(
         ProviderScope(
           overrides: [
             // update app State
             appProvider.overrideWith(
-                  (ref) => AppNotifier(ref)..init(networkDependencies.appState),
+              (ref) => AppNotifier(ref)..init(networkDependencies.appState),
             ),
             //update content
             // onboardingContentProvider.overrideWith(
@@ -35,7 +35,7 @@ void main() async {
         ),
       );
     },
-        (error, stack) {
+    (error, stack) {
       //crashlytics
       FirebaseCrashlytics.instance.recordError(error, stack, fatal: false);
     },
