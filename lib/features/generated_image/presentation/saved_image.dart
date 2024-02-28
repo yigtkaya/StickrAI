@@ -20,16 +20,16 @@ import 'package:stickerai/src/shared/helpers/route_helper.dart';
 import 'package:stickerai/src/shared/widgets/form-area/custom_form_field.dart';
 import 'package:shimmer/shimmer.dart';
 
-class GeneratedStickerPage extends ConsumerWidget {
+class SavedStickerPage extends ConsumerWidget {
   final List<String> stickers;
   final String prompt;
-  const GeneratedStickerPage({super.key, required this.stickers, required this.prompt});
+  const SavedStickerPage({super.key, required this.stickers, required this.prompt});
 
   static const routeName = '/generated-sticker';
 
   static Route<bool> route(List<String> output, String prompt) {
     return RouteHelper.platform(
-      builder: (_) => GeneratedStickerPage(
+      builder: (_) => SavedStickerPage(
         prompt: prompt,
         stickers: output,
       ),
@@ -52,7 +52,6 @@ class GeneratedStickerPage extends ConsumerWidget {
           actions: [
             TextButton(
               onPressed: () {
-                saveStickersToHive(stickers);
                 context.pop();
               },
               child: Text(
@@ -94,8 +93,6 @@ class GeneratedStickerPage extends ConsumerWidget {
                             ),
                           ),
                           placeholder: (context, url) => SizedBox(
-                            width: 100.0.w,
-                            height: 100.0.h,
                             child: Shimmer.fromColors(
                               baseColor: Colors.grey[300]!,
                               highlightColor: Colors.grey[100]!,
@@ -136,12 +133,11 @@ class GeneratedStickerPage extends ConsumerWidget {
                           ),
                         ),
                         placeholder: (context, url) => SizedBox(
-                          width: 100.0.w,
-                          height: 100.0.h,
                           child: Shimmer.fromColors(
                             baseColor: Colors.grey[300]!,
                             highlightColor: Colors.grey[100]!,
                             child: Container(
+                              width: double.infinity,
                               decoration: BoxDecoration(
                                 color: Colors.grey[300],
                               ),
@@ -160,12 +156,11 @@ class GeneratedStickerPage extends ConsumerWidget {
                 child: CachedNetworkImage(
                   imageUrl: stickers[selectedSticker],
                   placeholder: (context, url) => SizedBox(
-                    width: double.infinity,
-                    height: 400.h,
                     child: Shimmer.fromColors(
-                      baseColor: Colors.grey[300]!.withOpacity(0.5),
-                      highlightColor: Colors.grey[100]!.withOpacity(0.5),
+                      baseColor: Colors.grey[300]!,
+                      highlightColor: Colors.grey[100]!,
                       child: Container(
+                        width: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.grey[300],
                         ),
@@ -234,7 +229,7 @@ class GeneratedStickerPage extends ConsumerWidget {
                         final response = await ref.read(generateStickerProvider(promptController.text).future);
                         if (response.output.isNotNullOrEmpty) {
                           context.pushAndRemoveUntil(
-                            GeneratedStickerPage.route(
+                            SavedStickerPage.route(
                               response.output ?? [],
                               promptController.text,
                             ),

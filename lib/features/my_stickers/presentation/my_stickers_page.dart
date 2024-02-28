@@ -4,7 +4,7 @@ import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:stickerai/features/generated_image/presentation/generated_image_page.dart';
+import 'package:stickerai/features/generated_image/presentation/saved_image.dart';
 import 'package:stickerai/features/my_stickers/providers/my_stickers_provider.dart';
 import 'package:stickerai/settings/settings_sheet.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
@@ -88,7 +88,7 @@ Widget buildingStickerList(List<dynamic> mapList) => GridView.builder(
         return GestureDetector(
           onTap: () {
             context.push(
-              GeneratedStickerPage.route(map.values.first as List<String>, prompt),
+              SavedStickerPage.route(map.values.first as List<String>, prompt),
             );
           },
           child: Container(
