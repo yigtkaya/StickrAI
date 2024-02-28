@@ -9,7 +9,7 @@ part 'generator_repository.g.dart';
 
 @riverpod
 GeneratorRepository generatorRepository(GeneratorRepositoryRef ref) => GeneratorRepository(
-      dioState: ref.read(dioProvider), // a constant defined elsewhere
+      dioState: ref.read(dioProvider),
     );
 
 class GeneratorRepository {
@@ -22,12 +22,16 @@ class GeneratorRepository {
   final String locale;
 
   Future<StickerResponse> generateSticker(Input input) async {
-    final response = await _dioClient.get(
-      '/sticker',
-      queryParameters: {
-        'locale': locale,
-      },
-    );
-    return StickerResponse.fromJson(response.data);
+    try {
+      final response = await _dioClient.post(
+        '/replicate/sticker',
+        data: input.toJson(),
+      );
+      return StickerResponse.fromJson(response.data);
+    } on DioException catch (e) {
+      return StickerResponse(error: e.message, status: false);
+    } catch (e) {
+      return StickerResponse(error: e.toString(), status: false);
+    }
   }
 }

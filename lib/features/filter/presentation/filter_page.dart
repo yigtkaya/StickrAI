@@ -3,14 +3,22 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:stickerai/features/filter/providers/filter_providers.dart';
+import 'package:stickerai/features/generated_image/presentation/generated_image_page.dart';
+import 'package:stickerai/features/landing/providers/landing_providers.dart';
+import 'package:stickerai/src/models/input.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
+import 'package:stickerai/src/shared/dialog/loading_dialog.dart';
 import 'package:stickerai/src/shared/extensions/build_context_extension.dart';
 import 'package:stickerai/src/shared/extensions/extension.dart';
+import 'package:stickerai/src/shared/extensions/list_extension.dart';
 import 'package:stickerai/src/shared/helpers/route_helper.dart';
 import 'package:stickerai/src/shared/widgets/form-area/custom_form_field.dart';
 
-class FilterPage extends StatelessWidget {
+class FilterPage extends ConsumerWidget {
   const FilterPage({super.key});
 
   static const routeName = '/login';
@@ -24,8 +32,17 @@ class FilterPage extends StatelessWidget {
     );
   }
 
+  static Route<bool> routeDown() {
+    return RouteHelper.slideUp(
+      builder: (_) => const FilterPage(),
+      settings: const RouteSettings(
+        name: routeName,
+      ),
+    );
+  }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final heightController = TextEditingController(text: "1024");
     final widthController = TextEditingController(text: "1024");
     final seedController = TextEditingController();
@@ -33,7 +50,7 @@ class FilterPage extends StatelessWidget {
     final upscaleStepsController = TextEditingController(text: "10");
     final promptTextController = TextEditingController();
     final negativePromptTextController = TextEditingController();
-    var isUpscaleEnabled = true;
+    var isUpscaleEnabled = ref.watch(isUpscaleEnabledProvider);
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -44,21 +61,11 @@ class FilterPage extends StatelessWidget {
             context.pop();
           },
           icon: Icon(
-            LucideIcons.chevron_left,
+            LucideIcons.x,
             size: 28.h,
             color: Colors.white,
           ),
         ),
-        actions: [
-          // IconButton(
-          //   onPressed: () {},
-          //   icon: Icon(
-          //     LucideIcons.info,
-          //     size: 28.h,
-          //     color: Colors.white,
-          //   ),
-          // ),
-        ],
       ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -314,7 +321,7 @@ class FilterPage extends StatelessWidget {
                         child: Checkbox(
                           value: isUpscaleEnabled,
                           onChanged: (value) {
-                            isUpscaleEnabled = value!;
+                            ref.read(isUpscaleEnabledProvider.notifier).changeUpscale();
                           },
                         ),
                       ),
@@ -370,9 +377,84 @@ class FilterPage extends StatelessWidget {
               ),
               70.rH,
               GestureDetector(
-                onTap: () {
-                  // günlük sınır 3 adet olacak şekilde kontrol yapılacak
-                  // subscription kontrolü yapılacak
+                onTap: () async {
+                  if (promptTextController.text.isEmpty) {
+                    FToast().init(context).showToast(
+                          gravity: ToastGravity.BOTTOM,
+                          toastDuration: const Duration(seconds: 2),
+                          fadeDuration: const Duration(milliseconds: 300),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12.r),
+                              color: Colors.red,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(12.0.h),
+                              child: Center(
+                                child: Text(
+                                  "Prompt cannot be empty",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18.sp,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                    return;
+                  }
+                  showDialog(
+                    context: context,
+                    builder: (context) => const LoadingDialog(),
+                  );
+
+                  final input = Input(
+                    prompt: promptTextController.text,
+                    negativePrompt: negativePromptTextController.text,
+                    seed: int.parse(seedController.text),
+                    height: int.parse(heightController.text),
+                    width: int.parse(widthController.text),
+                    steps: int.parse(stepsController.text),
+                    upscaleSteps: int.parse(upscaleStepsController.text),
+                    upscale: isUpscaleEnabled,
+                  );
+                  final stickerResponse = await ref.read(
+                    generateFilteredStickerProvider(input).future,
+                  );
+                  if (stickerResponse.output.isNotNullOrEmpty) {
+                    context.pop();
+                    context.push(
+                      GeneratedStickerPage.route(
+                        stickerResponse.output ?? [],
+                        promptTextController.text,
+                      ),
+                    );
+                  } else {
+                    FToast().init(context).showToast(
+                          gravity: ToastGravity.BOTTOM,
+                          toastDuration: const Duration(seconds: 2),
+                          fadeDuration: const Duration(milliseconds: 300),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12.r),
+                              color: Colors.red,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(12.0.h),
+                              child: Center(
+                                child: Text(
+                                  stickerResponse.error.toString(),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18.sp,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                  }
                 },
                 behavior: HitTestBehavior.opaque,
                 child: Container(

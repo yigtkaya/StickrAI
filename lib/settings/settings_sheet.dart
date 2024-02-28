@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:in_app_review/in_app_review.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
 import 'package:stickerai/src/shared/extensions/extension.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
 SliverWoltModalSheetPage settingSheet() {
@@ -111,25 +114,50 @@ SliverWoltModalSheetPage settingSheet() {
               ),
               12.rW,
               Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.greyBackground,
-                    borderRadius: BorderRadius.all(Radius.circular(16.r)),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(20.0.r),
-                    child: Column(
-                      children: [
-                        Icon(
-                          LucideIcons.git_commit_horizontal,
-                          size: 24.h,
-                          color: Colors.white,
-                        ),
-                        Text(
-                          "Feedback",
-                          style: TextStyle(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                child: GestureDetector(
+                  onTap: () {
+                    String? encodeQueryParameters(
+                      Map<String, String> params,
+                    ) {
+                      return params.entries
+                          .map(
+                            (MapEntry<String, String> e) =>
+                                '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}',
+                          )
+                          .join('&');
+                    }
+
+                    final emailLaunchUri = Uri(
+                      scheme: 'mailto',
+                      path: 'hello@vivitate.com',
+                      query: encodeQueryParameters(<String, String>{
+                        'subject': 'Feedback',
+                      }),
+                    );
+
+                    launchUrl(emailLaunchUri);
+                  },
+                  behavior: HitTestBehavior.opaque,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.greyBackground,
+                      borderRadius: BorderRadius.all(Radius.circular(16.r)),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(20.0.r),
+                      child: Column(
+                        children: [
+                          Icon(
+                            LucideIcons.git_commit_horizontal,
+                            size: 24.h,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            "Feedback",
+                            style: TextStyle(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -165,25 +193,34 @@ SliverWoltModalSheetPage settingSheet() {
               ),
               12.rW,
               Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.greyBackground,
-                    borderRadius: BorderRadius.all(Radius.circular(16.r)),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(20.0.r),
-                    child: Column(
-                      children: [
-                        Icon(
-                          LucideIcons.store,
-                          size: 24.h,
-                          color: Colors.white,
-                        ),
-                        Text(
-                          "Rate this App",
-                          style: TextStyle(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                child: GestureDetector(
+                  onTap: () async {
+                    final inAppReview = InAppReview.instance;
+                    if (await inAppReview.isAvailable()) {
+                      inAppReview.requestReview();
+                    }
+                  },
+                  behavior: HitTestBehavior.opaque,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.greyBackground,
+                      borderRadius: BorderRadius.all(Radius.circular(16.r)),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(20.0.r),
+                      child: Column(
+                        children: [
+                          Icon(
+                            LucideIcons.store,
+                            size: 24.h,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            "Rate this app",
+                            style: TextStyle(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -202,7 +239,14 @@ SliverWoltModalSheetPage settingSheet() {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  // TODO: copy to clipboard
+                  Clipboard.setData(
+                    ClipboardData(
+                      text: "ID:{user.id}",
+                    ),
+                  );
+                },
                 icon: Icon(
                   LucideIcons.copy,
                   size: 24.h,

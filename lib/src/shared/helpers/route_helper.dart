@@ -67,6 +67,28 @@ class RouteHelper {
     );
   }
 
+  // create a route with a slide transition from bottm to top
+  static Route<T> slideUp<T>({
+    required WidgetBuilder builder,
+    required RouteSettings settings,
+    bool fullscreenDialog = false,
+  }) {
+    return PageRouteBuilder<T>(
+      settings: settings,
+      pageBuilder: (context, animation, secondaryAnimation) => builder(context),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(0, 1);
+        const end = Offset.zero;
+        final tween = Tween(begin: begin, end: end);
+        final offsetAnimation = animation.drive(tween);
+        return SlideTransition(
+          position: offsetAnimation,
+          child: child,
+        );
+      },
+    );
+  }
+
   static Route<T> slide<T>({
     required WidgetBuilder builder,
     required RouteSettings settings,

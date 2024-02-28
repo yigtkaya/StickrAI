@@ -11,12 +11,14 @@ class CustomTextField extends ConsumerWidget {
   final String? hint;
   final Function(String)? onChanged;
   final TextEditingController controller;
+  final Function? validator;
 
   const CustomTextField({
     super.key,
     required this.controller,
     this.onChanged,
     this.hint,
+    this.validator,
   });
 
   @override

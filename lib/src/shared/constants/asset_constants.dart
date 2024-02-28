@@ -17,4 +17,10 @@ class HTIcons {
 class HTImages {
   final String cuteCatExample = AssetConstants.toPng("cute_cat_example");
   final String cuteCatExample2 = AssetConstants.toPng("cute_cat_example_2");
+  final String cuteCat3 = AssetConstants.toPng("cute_cat_3");
+  final String bird = AssetConstants.toPng("bird");
+  final String dinazor = AssetConstants.toPng("dinazor");
+  final String smiley = AssetConstants.toPng("smiley");
+  final String women = AssetConstants.toPng("women");
+  final String pikachu = AssetConstants.toPng("pikachu");
 }

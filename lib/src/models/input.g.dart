@@ -14,6 +14,7 @@ _$InputImpl _$$InputImplFromJson(Map<String, dynamic> json) => _$InputImpl(
       upscale: json['upscale'] as bool?,
       upscaleSteps: json['upscale_steps'] as int?,
       negativePrompt: json['negative_prompt'] as String?,
+      seed: json['seed'] as int?,
     );
 
 Map<String, dynamic> _$$InputImplToJson(_$InputImpl instance) => <String, dynamic>{
@@ -24,4 +25,5 @@ Map<String, dynamic> _$$InputImplToJson(_$InputImpl instance) => <String, dynami
       'upscale': instance.upscale,
       'upscale_steps': instance.upscaleSteps,
       'negative_prompt': instance.negativePrompt,
+      'seed': instance.seed,
     };

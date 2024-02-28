@@ -34,6 +34,8 @@ mixin _$Input {
   int? get upscaleSteps => throw _privateConstructorUsedError;
   @JsonKey(name: "negative_prompt")
   String? get negativePrompt => throw _privateConstructorUsedError;
+  @JsonKey(name: "seed")
+  int? get seed => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +53,8 @@ abstract class $InputCopyWith<$Res> {
       @JsonKey(name: "prompt") String? prompt,
       @JsonKey(name: "upscale") bool? upscale,
       @JsonKey(name: "upscale_steps") int? upscaleSteps,
-      @JsonKey(name: "negative_prompt") String? negativePrompt});
+      @JsonKey(name: "negative_prompt") String? negativePrompt,
+      @JsonKey(name: "seed") int? seed});
 }
 
 /// @nodoc
@@ -73,6 +76,7 @@ class _$InputCopyWithImpl<$Res, $Val extends Input> implements $InputCopyWith<$R
     Object? upscale = freezed,
     Object? upscaleSteps = freezed,
     Object? negativePrompt = freezed,
+    Object? seed = freezed,
   }) {
     return _then(_value.copyWith(
       steps: freezed == steps
@@ -103,6 +107,10 @@ class _$InputCopyWithImpl<$Res, $Val extends Input> implements $InputCopyWith<$R
           ? _value.negativePrompt
           : negativePrompt // ignore: cast_nullable_to_non_nullable
               as String?,
+      seed: freezed == seed
+          ? _value.seed
+          : seed // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -119,7 +127,8 @@ abstract class _$$InputImplCopyWith<$Res> implements $InputCopyWith<$Res> {
       @JsonKey(name: "prompt") String? prompt,
       @JsonKey(name: "upscale") bool? upscale,
       @JsonKey(name: "upscale_steps") int? upscaleSteps,
-      @JsonKey(name: "negative_prompt") String? negativePrompt});
+      @JsonKey(name: "negative_prompt") String? negativePrompt,
+      @JsonKey(name: "seed") int? seed});
 }
 
 /// @nodoc
@@ -137,6 +146,7 @@ class __$$InputImplCopyWithImpl<$Res> extends _$InputCopyWithImpl<$Res, _$InputI
     Object? upscale = freezed,
     Object? upscaleSteps = freezed,
     Object? negativePrompt = freezed,
+    Object? seed = freezed,
   }) {
     return _then(_$InputImpl(
       steps: freezed == steps
@@ -167,6 +177,10 @@ class __$$InputImplCopyWithImpl<$Res> extends _$InputCopyWithImpl<$Res, _$InputI
           ? _value.negativePrompt
           : negativePrompt // ignore: cast_nullable_to_non_nullable
               as String?,
+      seed: freezed == seed
+          ? _value.seed
+          : seed // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -181,7 +195,8 @@ class _$InputImpl implements _Input {
       @JsonKey(name: "prompt") this.prompt,
       @JsonKey(name: "upscale") this.upscale,
       @JsonKey(name: "upscale_steps") this.upscaleSteps,
-      @JsonKey(name: "negative_prompt") this.negativePrompt});
+      @JsonKey(name: "negative_prompt") this.negativePrompt,
+      @JsonKey(name: "seed") this.seed});
 
   factory _$InputImpl.fromJson(Map<String, dynamic> json) => _$$InputImplFromJson(json);
 
@@ -206,10 +221,13 @@ class _$InputImpl implements _Input {
   @override
   @JsonKey(name: "negative_prompt")
   final String? negativePrompt;
+  @override
+  @JsonKey(name: "seed")
+  final int? seed;
 
   @override
   String toString() {
-    return 'Input(steps: $steps, width: $width, height: $height, prompt: $prompt, upscale: $upscale, upscaleSteps: $upscaleSteps, negativePrompt: $negativePrompt)';
+    return 'Input(steps: $steps, width: $width, height: $height, prompt: $prompt, upscale: $upscale, upscaleSteps: $upscaleSteps, negativePrompt: $negativePrompt, seed: $seed)';
   }
 
   @override
@@ -223,12 +241,14 @@ class _$InputImpl implements _Input {
             (identical(other.prompt, prompt) || other.prompt == prompt) &&
             (identical(other.upscale, upscale) || other.upscale == upscale) &&
             (identical(other.upscaleSteps, upscaleSteps) || other.upscaleSteps == upscaleSteps) &&
-            (identical(other.negativePrompt, negativePrompt) || other.negativePrompt == negativePrompt));
+            (identical(other.negativePrompt, negativePrompt) || other.negativePrompt == negativePrompt) &&
+            (identical(other.seed, seed) || other.seed == seed));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, steps, width, height, prompt, upscale, upscaleSteps, negativePrompt);
+  int get hashCode =>
+      Object.hash(runtimeType, steps, width, height, prompt, upscale, upscaleSteps, negativePrompt, seed);
 
   @JsonKey(ignore: true)
   @override
@@ -251,7 +271,8 @@ abstract class _Input implements Input {
       @JsonKey(name: "prompt") final String? prompt,
       @JsonKey(name: "upscale") final bool? upscale,
       @JsonKey(name: "upscale_steps") final int? upscaleSteps,
-      @JsonKey(name: "negative_prompt") final String? negativePrompt}) = _$InputImpl;
+      @JsonKey(name: "negative_prompt") final String? negativePrompt,
+      @JsonKey(name: "seed") final int? seed}) = _$InputImpl;
 
   factory _Input.fromJson(Map<String, dynamic> json) = _$InputImpl.fromJson;
 
@@ -276,6 +297,9 @@ abstract class _Input implements Input {
   @override
   @JsonKey(name: "negative_prompt")
   String? get negativePrompt;
+  @override
+  @JsonKey(name: "seed")
+  int? get seed;
   @override
   @JsonKey(ignore: true)
   _$$InputImplCopyWith<_$InputImpl> get copyWith => throw _privateConstructorUsedError;

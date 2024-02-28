@@ -1,4 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:stickerai/features/landing/repository/generator_repository.dart';
+import 'package:stickerai/src/models/input.dart';
+import 'package:stickerai/src/models/sticker_reponse.dart';
 
 part 'landing_providers.g.dart';
 
@@ -41,4 +44,38 @@ class NegativePromptText extends _$NegativePromptText {
   void set(String value) {
     state = value;
   }
+}
+
+@riverpod
+class IsLoading extends _$IsLoading {
+  @override
+  bool build() {
+    return false;
+  }
+
+  void changeLoading() {
+    state = !state;
+  }
+}
+
+@riverpod
+Future<StickerResponse> generateSticker(GenerateStickerRef ref, String prompt) async {
+  return ref.watch(generatorRepositoryProvider).generateSticker(
+        Input(
+          prompt: prompt,
+          negativePrompt: "",
+          steps: 20,
+          width: 1024,
+          height: 1024,
+          upscale: true,
+          upscaleSteps: 10,
+        ),
+      );
+}
+
+@riverpod
+Future<StickerResponse> generateFilteredSticker(GenerateFilteredStickerRef ref, Input input) async {
+  return ref.watch(generatorRepositoryProvider).generateSticker(
+        input,
+      );
 }

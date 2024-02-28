@@ -15,6 +15,7 @@ import 'package:stickerai/core/firebase/remote_config/remote_config_service.dart
 import 'package:stickerai/core/local_storage/hive_helper.dart';
 import 'package:stickerai/src/app_state.dart';
 import 'package:stickerai/src/shared/constants/app_constants.dart';
+import 'package:stickerai/src/shared/handlers/permission_handler.dart';
 import 'package:stickerai/src/shared/helpers/analytics_helper.dart';
 import 'package:stickerai/src/shared/observer/statusbar_manager.dart';
 import 'package:stickerai/store_version_check/store_check.dart';
@@ -50,6 +51,8 @@ Future<({AppState appState})> setupDI({
 
   // override http request
   HttpOverrides.global = MyHttpOverrides();
+
+  PermissionHandler().requestGalleryPermission();
 
   // configure ui modes
   await systemUIModeConfiguration();

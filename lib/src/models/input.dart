@@ -15,6 +15,7 @@ class Input with _$Input {
     @JsonKey(name: "upscale") bool? upscale,
     @JsonKey(name: "upscale_steps") int? upscaleSteps,
     @JsonKey(name: "negative_prompt") String? negativePrompt,
+    @JsonKey(name: "seed") int? seed,
   }) = _Input;
 
   factory Input.fromJson(Map<String, dynamic> json) => _$InputFromJson(json);
