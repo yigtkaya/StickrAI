@@ -7,6 +7,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:saver_gallery/saver_gallery.dart';
+import 'package:stickerai/core/dependecy_injections/global_di_holders.dart';
+import 'package:stickerai/core/local_storage/storage_key.dart';
 import 'package:stickerai/features/filter/presentation/filter_page.dart';
 import 'package:stickerai/features/generated_image/providers/generated_image_providers.dart';
 import 'package:stickerai/features/landing/providers/landing_providers.dart';
@@ -50,6 +52,7 @@ class GeneratedStickerPage extends ConsumerWidget {
           actions: [
             TextButton(
               onPressed: () {
+                saveStickersToHive(stickers);
                 context.pop();
               },
               child: Text(
@@ -326,7 +329,34 @@ class GeneratedStickerPage extends ConsumerWidget {
     );
   }
 
-  void saveStickersToHive(List<String> stickers) {}
+  void saveStickersToHive(List<String> stickers) {
+    final currentSavedStickers = hiveStorage.readList(
+      key: StorageKey.userGeneratedStickers,
+    );
+
+    if (currentSavedStickers == null) {
+      final map = {
+        prompt: stickers,
+      };
+      hiveStorage.writeList(
+        key: StorageKey.userGeneratedStickers,
+        value: [map],
+      );
+      return;
+    }
+
+    final map = {
+      prompt: stickers,
+    };
+
+    final updatedList = currentSavedStickers..add(map);
+
+    hiveStorage.writeList(
+      key: StorageKey.userGeneratedStickers,
+      value: updatedList,
+    );
+  }
+
   void saveSticker(String url, BuildContext context) async {
     final response = await Dio().get(
       url,

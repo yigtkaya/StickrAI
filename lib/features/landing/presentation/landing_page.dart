@@ -195,6 +195,8 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                           ),
                         );
                       } else {
+                        context.pop();
+
                         FToast().init(context).showToast(
                               gravity: ToastGravity.BOTTOM,
                               toastDuration: const Duration(seconds: 2),

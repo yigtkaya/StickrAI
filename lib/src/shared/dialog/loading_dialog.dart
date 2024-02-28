@@ -16,7 +16,7 @@ class _LoadingDialogState extends State<LoadingDialog> {
   int selectedIndex = 0;
 
   final images = [
-    AssetConstants.images.cuteCatExample,
+    AssetConstants.images.cuteCatExample2,
     AssetConstants.images.bird,
     AssetConstants.images.dinazor,
     AssetConstants.images.smiley,

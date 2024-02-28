@@ -34,4 +34,8 @@ enum StorageKey {
   //  otpAuthorizationId
   /// otpAuthorizationId type is [String]
   otpAuthorizationId,
+
+  /// user generated stickers
+  /// user generated sticker type is [List<Map<String, List<Uint8List>>]
+  userGeneratedStickers,
 }
