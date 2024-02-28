@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_jailbreak_detection/flutter_jailbreak_detection.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:stickerai/core/dependecy_injections/di_development.dart';
 import 'package:stickerai/core/dependecy_injections/di_production.dart';
@@ -15,6 +16,7 @@ import 'package:stickerai/core/firebase/remote_config/remote_config_service.dart
 import 'package:stickerai/core/local_storage/hive_helper.dart';
 import 'package:stickerai/src/app_state.dart';
 import 'package:stickerai/src/shared/constants/app_constants.dart';
+import 'package:stickerai/src/shared/handlers/deep_link_handler.dart';
 import 'package:stickerai/src/shared/handlers/permission_handler.dart';
 import 'package:stickerai/src/shared/helpers/analytics_helper.dart';
 import 'package:stickerai/src/shared/observer/statusbar_manager.dart';
@@ -42,7 +44,19 @@ Future<({AppState appState})> setupDI({
   } else {
     await setupDevDI();
   }
+  await PermissionHandler().requestNotificationPermission();
 
+  OneSignal.initialize(env.oneSignalKey);
+
+  OneSignal.Notifications.addClickListener((event) {
+    print("Clicked notification: \n${event.notification.jsonRepresentation().replaceAll("\\n", "\n")}");
+  });
+
+  OneSignal.InAppMessages.addClickListener((event) {
+    if (event.result.url != null && event.result.url?.isNotEmpty == true) {
+      handleDeepLink(event.result.url!);
+    }
+  });
   // call global inits after environment di setup is done
   // RemoteConfigService.instance.init();
 
@@ -52,7 +66,7 @@ Future<({AppState appState})> setupDI({
   // override http request
   HttpOverrides.global = MyHttpOverrides();
 
-  PermissionHandler().requestGalleryPermission();
+  await PermissionHandler().requestGalleryPermission();
 
   // configure ui modes
   await systemUIModeConfiguration();

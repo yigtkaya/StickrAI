@@ -31,5 +31,8 @@ mixin Environment {
   String appleAppId = '1234567890';
 
   // app name
-  String appleAppName = 'Parakolay Merchant';
+  String appleAppName = 'Stickrai';
+
+  //one signal
+  String oneSignalKey = "24b61d2d-aaa1-4fc9-8528-8f305431160c";
 }
