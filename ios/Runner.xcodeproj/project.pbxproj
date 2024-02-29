@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -280,6 +280,7 @@
 				5EF6EDB92B8FCD6B001D0B83 /* Embed Foundation Extensions */,
 				B3D73AE09539050A03120E17 /* [CP] Embed Pods Frameworks */,
 				85A51D5F21F4228D4615AF09 /* [firebase_crashlytics] Crashlytics Upload Symbols */,
+				5E88C4942B913707000F335A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -316,7 +317,7 @@
 				};
 			};
 			buildConfigurationList = 97C146E91CF9000F007C117D /* Build configuration list for PBXProject "Runner" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -380,6 +381,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed_and_thin";
+		};
+		5E88C4942B913707000F335A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$PODS_ROOT/FirebaseCrashlytics/upload-symbols --build-phase --validate -ai 1:121716962646:ios:a884ac69e4226ee9c9d2f7\n$PODS_ROOT/FirebaseCrashlytics/upload-symbols --build-phase -ai 1:121716962646:ios:a884ac69e4226ee9c9d2f7\n";
 		};
 		85A51D5F21F4228D4615AF09 /* [firebase_crashlytics] Crashlytics Upload Symbols */ = {
 			isa = PBXShellScriptBuildPhase;
