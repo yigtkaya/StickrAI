@@ -57,6 +57,7 @@ class CustomBottomNavBarState extends State<CustomBottomNavBar> {
                 },
                 child: Icon(
                   LucideIcons.sticker,
+                  size: 28.h,
                   color: _selectedIndex != 0 ? Colors.grey : AppColors.neutralWhite,
                 ),
               ),
@@ -71,6 +72,7 @@ class CustomBottomNavBarState extends State<CustomBottomNavBar> {
                 },
                 child: Icon(
                   LucideIcons.layout_list,
+                  size: 28.h,
                   color: _selectedIndex != 1 ? Colors.grey : AppColors.neutralWhite,
                 ),
               ),

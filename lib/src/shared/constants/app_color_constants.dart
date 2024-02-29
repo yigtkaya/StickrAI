@@ -22,4 +22,5 @@ class AppColors {
   static const splashBackground = Color(0xFFFCFCFC);
   static const lightColor = Color(0xFFFDB7E1);
   static const greyBackground = Color(0xFF252527);
+  static const deepPurple = Color.fromRGBO(33, 9, 56, 1);
 }

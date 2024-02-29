@@ -22,7 +22,7 @@ import 'package:stickerai/src/shared/widgets/form-area/custom_form_field.dart';
 class FilterPage extends ConsumerWidget {
   const FilterPage({super.key});
 
-  static const routeName = '/login';
+  static const routeName = '/filter';
 
   static Route<bool> route() {
     return RouteHelper.slide(

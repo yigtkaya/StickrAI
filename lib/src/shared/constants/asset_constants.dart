@@ -26,4 +26,5 @@ class HTImages {
   final String onboarding = AssetConstants.toPng("onboarding");
   final String onboarding2 = AssetConstants.toJpeg("onboarding_2");
   final String logo = AssetConstants.toPng("logo");
+  final String paywall = AssetConstants.toPng("paywall");
 }

@@ -6,12 +6,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gradient_borders/gradient_borders.dart';
-import 'package:stickerai/features/filter/presentation/filter_page.dart';
 import 'package:stickerai/features/generated_image/presentation/generated_image_page.dart';
 import 'package:stickerai/features/landing/providers/landing_providers.dart';
+import 'package:stickerai/features/paywall/paywall.dart';
 import 'package:stickerai/features/settings/settings_sheet.dart';
 import 'package:stickerai/localization/language_provider.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
+import 'package:stickerai/src/shared/constants/asset_constants.dart';
 import 'package:stickerai/src/shared/dialog/loading_dialog.dart';
 import 'package:stickerai/src/shared/extensions/build_context_extension.dart';
 import 'package:stickerai/src/shared/extensions/extension.dart';
@@ -48,6 +49,15 @@ class _LandingPageState extends ConsumerState<LandingPage> {
     _negativePromptTextController.text = ref.read(negativePromptTextProvider);
     super.initState();
   }
+
+  final imageList = [
+    AssetConstants.images.cuteCatExample2,
+    AssetConstants.images.bird,
+    AssetConstants.images.dinazor,
+    AssetConstants.images.pikachu,
+    AssetConstants.images.smiley,
+    AssetConstants.images.women,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -89,30 +99,59 @@ class _LandingPageState extends ConsumerState<LandingPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               24.rH,
-              Tooltip(
-                message: tr.comingSoon,
-                triggerMode: TooltipTriggerMode.tap,
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: AppColors.greyBackground,
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.circular(12.r),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 120.0.h),
-                    child: Center(
-                      child: IconButton(
-                        onPressed: () {
-                          // show tooltip as coming soon
-                        },
-                        icon: const Icon(LucideIcons.image),
+              GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 8.w,
+                  mainAxisSpacing: 8.h,
+                ),
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      showImageFullScreenDialog(context, imageList[index]);
+                    },
+                    child: Hero(
+                      tag: imageList[index],
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12.r),
+                          image: DecorationImage(
+                            image: AssetImage(imageList[index]),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
+                  );
+                },
+                itemCount: imageList.length,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
               ),
+              // Tooltip(
+              //   message: tr.comingSoon,
+              //   triggerMode: TooltipTriggerMode.tap,
+              //   child: Container(
+              //     decoration: BoxDecoration(
+              //       border: Border.all(
+              //         color: AppColors.greyBackground,
+              //         width: 2,
+              //       ),
+              //       borderRadius: BorderRadius.circular(12.r),
+              //     ),
+              //     child: Padding(
+              //       padding: EdgeInsets.symmetric(vertical: 120.0.h),
+              //       child: Center(
+              //         child: IconButton(
+              //           onPressed: () {
+              //             // show tooltip as coming soon
+              //           },
+              //           icon: const Icon(LucideIcons.image),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
               56.rH,
               Text(
                 tr.startWithAPrompt,
@@ -239,7 +278,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                     child: IconButton(
                       onPressed: () {
                         context.push(
-                          FilterPage.route(),
+                          PayWall.route(),
                         );
                       },
                       icon: Icon(
@@ -252,6 +291,61 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                 ],
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+void showImageFullScreenDialog(BuildContext context, String image) {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return Dialog(
+        surfaceTintColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Hero(
+            tag: image,
+            child: Image.asset(image),
+          ),
+        ),
+      );
+    },
+  );
+}
+
+class DetailScreen extends StatelessWidget {
+  final String image;
+  const DetailScreen({Key? key, required this.image}) : super(key: key);
+
+  static const routeName = '/detail';
+
+  static Route<bool> route(String image) {
+    return RouteHelper.platform(
+      builder: (_) => DetailScreen(image: image),
+      settings: const RouteSettings(
+        name: '/detail',
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: GestureDetector(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: Center(
+          child: Hero(
+            tag: image,
+            child: Image.asset(image),
           ),
         ),
       ),
