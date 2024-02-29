@@ -6,6 +6,12 @@ import 'package:stickerai/core/dependecy_injections/global_di_holders.dart';
 import 'package:stickerai/core/local_storage/storage_key.dart';
 import 'package:stickerai/localization/app_localizations.dart';
 import 'package:stickerai/localization/languages/english.dart';
+import 'package:stickerai/localization/languages/french.dart';
+import 'package:stickerai/localization/languages/german.dart';
+import 'package:stickerai/localization/languages/italian.dart';
+import 'package:stickerai/localization/languages/japanese.dart';
+import 'package:stickerai/localization/languages/russian.dart';
+import 'package:stickerai/localization/languages/spanish.dart';
 import 'package:stickerai/localization/languages/turkish.dart';
 import 'package:stickerai/localization/models/language.dart';
 import 'package:stickerai/src/app.dart';
@@ -21,6 +27,12 @@ final languageProvider = StateNotifierProvider<LanguageController, Language>(
       supportedLanguages: [
         turkish,
         english,
+        spanish,
+        german,
+        russian,
+        japanese,
+        italian,
+        french,
       ],
     );
   },

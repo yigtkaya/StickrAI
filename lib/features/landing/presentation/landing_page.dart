@@ -9,7 +9,8 @@ import 'package:gradient_borders/gradient_borders.dart';
 import 'package:stickerai/features/filter/presentation/filter_page.dart';
 import 'package:stickerai/features/generated_image/presentation/generated_image_page.dart';
 import 'package:stickerai/features/landing/providers/landing_providers.dart';
-import 'package:stickerai/settings/settings_sheet.dart';
+import 'package:stickerai/features/settings/settings_sheet.dart';
+import 'package:stickerai/localization/language_provider.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
 import 'package:stickerai/src/shared/dialog/loading_dialog.dart';
 import 'package:stickerai/src/shared/extensions/build_context_extension.dart';
@@ -89,7 +90,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
             children: [
               24.rH,
               Tooltip(
-                message: "Coming Soon",
+                message: tr.comingSoon,
                 triggerMode: TooltipTriggerMode.tap,
                 child: Container(
                   decoration: BoxDecoration(
@@ -114,7 +115,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
               ),
               56.rH,
               Text(
-                "Start With a Prompt",
+                tr.startWithAPrompt,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 21.sp,
@@ -124,7 +125,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
               12.rH,
               CustomTextField(
                 controller: _promptTextController,
-                hint: "A cute cat",
+                hint: tr.promptHint,
                 onChanged: (value) => ref.read(promptTextProvider.notifier).set(value),
               ),
               24.rH,
@@ -147,7 +148,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                                   padding: EdgeInsets.all(12.0.h),
                                   child: Center(
                                     child: Text(
-                                      "Prompt cannot be empty",
+                                      tr.promptCannotBeEmpty,
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 18.sp,
@@ -215,7 +216,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Text(
-                          "Generate Sticker",
+                          tr.generateSticker,
                           style: TextStyle(color: AppColors.neutralWhite, fontSize: 18.sp),
                         ),
                       ),

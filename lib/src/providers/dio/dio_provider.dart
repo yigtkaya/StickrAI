@@ -15,7 +15,7 @@ final dioProvider = StateProvider<DioState>(
     //final locale = '${language.id == arabic.id ? 'ar' : 'en'}-${region.isoCode ?? 'AE'}';
     final locale = language.id == english.id ? 'en-US' : 'tr-TR';
     final baseOptions = BaseOptions(
-      baseUrl: "http://10.0.2.2:3000",
+      baseUrl: "https://replicateapi.onrender.com",
       headers: {
         'Content-Type': 'application/json',
         // 'Channel': 'MerchantPortal',

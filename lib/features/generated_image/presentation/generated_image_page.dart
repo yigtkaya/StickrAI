@@ -14,6 +14,7 @@ import 'package:stickerai/core/local_storage/storage_key.dart';
 import 'package:stickerai/features/filter/presentation/filter_page.dart';
 import 'package:stickerai/features/generated_image/providers/generated_image_providers.dart';
 import 'package:stickerai/features/landing/providers/landing_providers.dart';
+import 'package:stickerai/localization/language_provider.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
 import 'package:stickerai/src/shared/extensions/build_context_extension.dart';
 import 'package:stickerai/src/shared/extensions/extension.dart';
@@ -58,7 +59,7 @@ class GeneratedStickerPage extends ConsumerWidget {
                 context.pop();
               },
               child: Text(
-                "Done",
+                tr.done,
                 style: TextStyle(color: Colors.white, fontSize: 18.sp),
               ),
             ),
@@ -185,7 +186,7 @@ class GeneratedStickerPage extends ConsumerWidget {
                 ),
                 child: CustomTextField(
                   controller: promptController,
-                  validator: (value) => value!.isEmpty ? "Prompt cannot be empty" : null,
+                  validator: (value) => value!.isEmpty ? tr.promptCannotBeEmpty : null,
                 ),
               ),
               12.rH,
@@ -216,7 +217,7 @@ class GeneratedStickerPage extends ConsumerWidget {
                               ),
                               8.rW,
                               Text(
-                                "Adjust",
+                                tr.adjust,
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16.sp,
@@ -286,7 +287,7 @@ class GeneratedStickerPage extends ConsumerWidget {
                               ),
                               8.rW,
                               Text(
-                                "Generate Again",
+                                tr.generateAgain,
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16.sp,
@@ -316,7 +317,7 @@ class GeneratedStickerPage extends ConsumerWidget {
                     padding: const EdgeInsets.all(12.0),
                     child: Center(
                       child: Text(
-                        "Save Sticker",
+                        tr.saveSticker,
                         style: TextStyle(
                           fontSize: 18.sp,
                           color: Colors.black,
@@ -388,8 +389,8 @@ class GeneratedStickerPage extends ConsumerWidget {
               ),
               child: Padding(
                 padding: EdgeInsets.all(12.r),
-                child: const Center(
-                  child: Text("Image saved successfully."),
+                child: Center(
+                  child: Text(tr.savedSuccessfully),
                 ),
               ),
             ),
@@ -404,8 +405,8 @@ class GeneratedStickerPage extends ConsumerWidget {
               ),
               child: Padding(
                 padding: EdgeInsets.all(12.r),
-                child: const Center(
-                  child: Text("Cannot save image, please try again later."),
+                child: Center(
+                  child: Text(tr.cannotSaveSticker),
                 ),
               ),
             ),

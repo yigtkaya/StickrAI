@@ -64,16 +64,14 @@ class GenerateStickerFamily extends Family<AsyncValue<StickerResponse>> {
   static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
 
   @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies => _allTransitiveDependencies;
 
   @override
   String? get name => r'generateStickerProvider';
 }
 
 /// See also [generateSticker].
-class GenerateStickerProvider
-    extends AutoDisposeFutureProvider<StickerResponse> {
+class GenerateStickerProvider extends AutoDisposeFutureProvider<StickerResponse> {
   /// See also [generateSticker].
   GenerateStickerProvider(
     String prompt,
@@ -84,13 +82,9 @@ class GenerateStickerProvider
           ),
           from: generateStickerProvider,
           name: r'generateStickerProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$generateStickerHash,
+          debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product') ? null : _$generateStickerHash,
           dependencies: GenerateStickerFamily._dependencies,
-          allTransitiveDependencies:
-              GenerateStickerFamily._allTransitiveDependencies,
+          allTransitiveDependencies: GenerateStickerFamily._allTransitiveDependencies,
           prompt: prompt,
         );
 
@@ -148,8 +142,7 @@ mixin GenerateStickerRef on AutoDisposeFutureProviderRef<StickerResponse> {
   String get prompt;
 }
 
-class _GenerateStickerProviderElement
-    extends AutoDisposeFutureProviderElement<StickerResponse>
+class _GenerateStickerProviderElement extends AutoDisposeFutureProviderElement<StickerResponse>
     with GenerateStickerRef {
   _GenerateStickerProviderElement(super.provider);
 
@@ -157,16 +150,14 @@ class _GenerateStickerProviderElement
   String get prompt => (origin as GenerateStickerProvider).prompt;
 }
 
-String _$generateFilteredStickerHash() =>
-    r'9fa07e680756b9d088c6d6856bfda7872ab6ffd3';
+String _$generateFilteredStickerHash() => r'9fa07e680756b9d088c6d6856bfda7872ab6ffd3';
 
 /// See also [generateFilteredSticker].
 @ProviderFor(generateFilteredSticker)
 const generateFilteredStickerProvider = GenerateFilteredStickerFamily();
 
 /// See also [generateFilteredSticker].
-class GenerateFilteredStickerFamily
-    extends Family<AsyncValue<StickerResponse>> {
+class GenerateFilteredStickerFamily extends Family<AsyncValue<StickerResponse>> {
   /// See also [generateFilteredSticker].
   const GenerateFilteredStickerFamily();
 
@@ -196,16 +187,14 @@ class GenerateFilteredStickerFamily
   static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
 
   @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies => _allTransitiveDependencies;
 
   @override
   String? get name => r'generateFilteredStickerProvider';
 }
 
 /// See also [generateFilteredSticker].
-class GenerateFilteredStickerProvider
-    extends AutoDisposeFutureProvider<StickerResponse> {
+class GenerateFilteredStickerProvider extends AutoDisposeFutureProvider<StickerResponse> {
   /// See also [generateFilteredSticker].
   GenerateFilteredStickerProvider(
     Input input,
@@ -217,12 +206,9 @@ class GenerateFilteredStickerProvider
           from: generateFilteredStickerProvider,
           name: r'generateFilteredStickerProvider',
           debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$generateFilteredStickerHash,
+              const bool.fromEnvironment('dart.vm.product') ? null : _$generateFilteredStickerHash,
           dependencies: GenerateFilteredStickerFamily._dependencies,
-          allTransitiveDependencies:
-              GenerateFilteredStickerFamily._allTransitiveDependencies,
+          allTransitiveDependencies: GenerateFilteredStickerFamily._allTransitiveDependencies,
           input: input,
         );
 
@@ -240,8 +226,7 @@ class GenerateFilteredStickerProvider
 
   @override
   Override overrideWith(
-    FutureOr<StickerResponse> Function(GenerateFilteredStickerRef provider)
-        create,
+    FutureOr<StickerResponse> Function(GenerateFilteredStickerRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -276,14 +261,12 @@ class GenerateFilteredStickerProvider
   }
 }
 
-mixin GenerateFilteredStickerRef
-    on AutoDisposeFutureProviderRef<StickerResponse> {
+mixin GenerateFilteredStickerRef on AutoDisposeFutureProviderRef<StickerResponse> {
   /// The parameter `input` of this provider.
   Input get input;
 }
 
-class _GenerateFilteredStickerProviderElement
-    extends AutoDisposeFutureProviderElement<StickerResponse>
+class _GenerateFilteredStickerProviderElement extends AutoDisposeFutureProviderElement<StickerResponse>
     with GenerateFilteredStickerRef {
   _GenerateFilteredStickerProviderElement(super.provider);
 
@@ -295,29 +278,23 @@ String _$promptTextHash() => r'b28efaf1e8ce0c141831ff82491ffbc8f4d5321f';
 
 /// See also [PromptText].
 @ProviderFor(PromptText)
-final promptTextProvider =
-    AutoDisposeNotifierProvider<PromptText, String>.internal(
+final promptTextProvider = AutoDisposeNotifierProvider<PromptText, String>.internal(
   PromptText.new,
   name: r'promptTextProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$promptTextHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product') ? null : _$promptTextHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
 typedef _$PromptText = AutoDisposeNotifier<String>;
-String _$negativePromptTextHash() =>
-    r'6263f925e188dd6bf768b55d7607f8e03c530d4d';
+String _$negativePromptTextHash() => r'6263f925e188dd6bf768b55d7607f8e03c530d4d';
 
 /// See also [NegativePromptText].
 @ProviderFor(NegativePromptText)
-final negativePromptTextProvider =
-    AutoDisposeNotifierProvider<NegativePromptText, String>.internal(
+final negativePromptTextProvider = AutoDisposeNotifierProvider<NegativePromptText, String>.internal(
   NegativePromptText.new,
   name: r'negativePromptTextProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$negativePromptTextHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product') ? null : _$negativePromptTextHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
@@ -330,8 +307,7 @@ String _$isLoadingHash() => r'96a0aadb1685f5c0e5562663f41eb96287d75c84';
 final isLoadingProvider = AutoDisposeNotifierProvider<IsLoading, bool>.internal(
   IsLoading.new,
   name: r'isLoadingProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$isLoadingHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product') ? null : _$isLoadingHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

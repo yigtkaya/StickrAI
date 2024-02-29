@@ -6,18 +6,14 @@ part of 'generator_repository.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$generatorRepositoryHash() =>
-    r'e0e011e9543236324cd9cb9726ffd5e88500e298';
+String _$generatorRepositoryHash() => r'e0e011e9543236324cd9cb9726ffd5e88500e298';
 
 /// See also [generatorRepository].
 @ProviderFor(generatorRepository)
-final generatorRepositoryProvider =
-    AutoDisposeProvider<GeneratorRepository>.internal(
+final generatorRepositoryProvider = AutoDisposeProvider<GeneratorRepository>.internal(
   generatorRepository,
   name: r'generatorRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$generatorRepositoryHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product') ? null : _$generatorRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

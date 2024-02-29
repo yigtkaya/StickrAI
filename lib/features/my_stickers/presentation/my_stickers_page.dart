@@ -6,7 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:stickerai/features/generated_image/presentation/saved_image.dart';
 import 'package:stickerai/features/my_stickers/providers/my_stickers_provider.dart';
-import 'package:stickerai/settings/settings_sheet.dart';
+import 'package:stickerai/features/settings/settings_sheet.dart';
+import 'package:stickerai/localization/language_provider.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
 import 'package:stickerai/src/shared/extensions/build_context_extension.dart';
 import 'package:stickerai/src/shared/extensions/extension.dart';
@@ -25,7 +26,6 @@ class MyStickersPage extends ConsumerWidget {
         actions: [
           IconButton(
             onPressed: () {
-              // wolt modal bottom sheet
               WoltModalSheet.show(
                 enableDrag: true,
                 barrierDismissible: true,
@@ -49,7 +49,7 @@ class MyStickersPage extends ConsumerWidget {
         ],
         centerTitle: true,
         title: Text(
-          'Your Stickers',
+          tr.yourStickers,
           style: TextStyle(
             color: AppColors.neutralWhite,
             fontSize: 22.sp,
@@ -61,7 +61,8 @@ class MyStickersPage extends ConsumerWidget {
           ? buildingStickerList(stickers)
           : Center(
               child: Text(
-                'You have not created a sticker yet',
+                tr.notCreatedAnySticker,
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.grey.shade500,
                   fontSize: 20.sp,

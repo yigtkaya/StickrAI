@@ -9,6 +9,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:stickerai/features/filter/providers/filter_providers.dart';
 import 'package:stickerai/features/generated_image/presentation/generated_image_page.dart';
 import 'package:stickerai/features/landing/providers/landing_providers.dart';
+import 'package:stickerai/localization/language_provider.dart';
 import 'package:stickerai/src/models/input.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
 import 'package:stickerai/src/shared/dialog/loading_dialog.dart';
@@ -75,7 +76,7 @@ class FilterPage extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Advanced Settings",
+                tr.advancedSettings,
                 style: TextStyle(color: Colors.white, fontSize: 24.sp),
               ),
               20.rH,
@@ -93,7 +94,7 @@ class FilterPage extends ConsumerWidget {
                           child: Column(
                             children: [
                               Text(
-                                "Seed",
+                                tr.seed,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Colors.grey,
@@ -134,7 +135,7 @@ class FilterPage extends ConsumerWidget {
                           child: Column(
                             children: [
                               Text(
-                                "Height",
+                                tr.height,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Colors.grey,
@@ -176,7 +177,7 @@ class FilterPage extends ConsumerWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
-                                "Width",
+                                tr.width,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Colors.grey,
@@ -224,7 +225,7 @@ class FilterPage extends ConsumerWidget {
                           child: Column(
                             children: [
                               Text(
-                                "Steps",
+                                tr.steps,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Colors.grey,
@@ -265,7 +266,7 @@ class FilterPage extends ConsumerWidget {
                           child: Column(
                             children: [
                               Text(
-                                "Upscale Steps",
+                                tr.upscaleSteps,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Colors.grey,
@@ -309,7 +310,7 @@ class FilterPage extends ConsumerWidget {
                   child: Row(
                     children: [
                       Text(
-                        "Upscale",
+                        tr.upscale,
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: 18.sp,
@@ -341,7 +342,7 @@ class FilterPage extends ConsumerWidget {
                   child: Column(
                     children: [
                       Text(
-                        "Negative Prompt",
+                        tr.negativePrompt,
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: 16.sp,
@@ -358,7 +359,7 @@ class FilterPage extends ConsumerWidget {
                         ),
                         decoration: InputDecoration(
                           border: InputBorder.none,
-                          hintText: "Things you do not want in the sticker",
+                          hintText: tr.negativePromptHint,
                           hintStyle: TextStyle(
                             color: Colors.white60,
                             fontSize: 14.sp,
@@ -373,7 +374,7 @@ class FilterPage extends ConsumerWidget {
               36.rH,
               CustomTextField(
                 controller: promptTextController,
-                hint: "A cute cat",
+                hint: tr.promptHint,
               ),
               70.rH,
               GestureDetector(
@@ -392,7 +393,7 @@ class FilterPage extends ConsumerWidget {
                               padding: EdgeInsets.all(12.0.h),
                               child: Center(
                                 child: Text(
-                                  "Prompt cannot be empty",
+                                  tr.promptCannotBeEmpty,
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18.sp,
@@ -471,7 +472,7 @@ class FilterPage extends ConsumerWidget {
                     padding: const EdgeInsets.all(12.0),
                     child: Center(
                       child: Text(
-                        "Generate Sticker",
+                        tr.generateSticker,
                         style: TextStyle(color: AppColors.neutralWhite, fontSize: 18.sp),
                       ),
                     ),

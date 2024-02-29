@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stickerai/core/dependecy_injections/global_di_holders.dart';
 import 'package:stickerai/core/local_storage/storage_key.dart';
 import 'package:stickerai/features/navigation_bar/presentation/bottom_navigation.dart';
+import 'package:stickerai/localization/language_provider.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
 import 'package:stickerai/src/shared/constants/asset_constants.dart';
 import 'package:stickerai/src/shared/extensions/build_context_extension.dart';
@@ -54,7 +55,7 @@ class OnboardingScreen extends StatelessWidget {
                           ).createShader(bounds);
                         },
                         child: Text(
-                          "Start with a prompt, unleash your imagination, and watch it come alive with the magic of stickers!",
+                          tr.onboardingFirstTitle,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 22.sp,
@@ -85,7 +86,7 @@ class OnboardingScreen extends StatelessWidget {
                     padding: EdgeInsets.all(12.0.h),
                     child: Center(
                       child: Text(
-                        "Continue",
+                        tr.devam,
                         style: TextStyle(
                           color: AppColors.neutralBlack,
                           fontSize: 20.sp,
@@ -98,8 +99,8 @@ class OnboardingScreen extends StatelessWidget {
               ),
               12.rH,
               Text(
+                tr.onboardingDisclaimer,
                 textAlign: TextAlign.center,
-                "Your stickers will only witheld in your device, it will not be shared with any third party and will be deleted immediately after the process is completed.",
                 style: TextStyle(
                   color: AppColors.neutralWhite,
                   fontSize: 12.sp,
@@ -116,17 +117,17 @@ class OnboardingScreen extends StatelessWidget {
                   ),
                   children: <TextSpan>[
                     TextSpan(
-                      text: 'Terms of Service - ',
+                      text: '${tr.termsAndConditions} - ',
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          print('Terms of Service');
+                          /// TODO
                         },
                     ),
                     TextSpan(
                       text: 'Privacy Policy',
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          print('Privacy Policy"');
+                          /// TODO
                         },
                     ),
                   ],
@@ -183,7 +184,7 @@ class OnboardingSecondScreen extends StatelessWidget {
                           ).createShader(bounds);
                         },
                         child: Text(
-                          "Upload your image, support with a prompt, unleash your imagination, and watch it come alive with the magic of stickers!",
+                          tr.onboardingSecondTitle,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 22.sp,
@@ -219,7 +220,7 @@ class OnboardingSecondScreen extends StatelessWidget {
                     padding: EdgeInsets.all(12.0.h),
                     child: Center(
                       child: Text(
-                        "Start",
+                        tr.start,
                         style: TextStyle(
                           color: AppColors.neutralBlack,
                           fontSize: 20.sp,
@@ -232,8 +233,8 @@ class OnboardingSecondScreen extends StatelessWidget {
               ),
               12.rH,
               Text(
+                tr.onboardingDisclaimer,
                 textAlign: TextAlign.center,
-                "Your stickers will only witheld in your device, it will not be shared with any third party and will be deleted immediately after the process is completed.",
                 style: TextStyle(
                   color: AppColors.neutralWhite,
                   fontSize: 12.sp,
@@ -250,17 +251,17 @@ class OnboardingSecondScreen extends StatelessWidget {
                   ),
                   children: <TextSpan>[
                     TextSpan(
-                      text: 'Terms of Service - ',
+                      text: '${tr.termsAndConditions} - ',
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          print('Terms of Service');
+                          /// TODO
                         },
                     ),
                     TextSpan(
-                      text: 'Privacy Policy',
+                      text: tr.privacyPolicy,
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          print('Privacy Policy"');
+                          /// TODO
                         },
                     ),
                   ],
