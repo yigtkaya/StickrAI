@@ -11,14 +11,12 @@ import 'package:stickerai/features/generated_image/presentation/generated_image_
 import 'package:stickerai/features/landing/providers/landing_providers.dart';
 import 'package:stickerai/settings/settings_sheet.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
-import 'package:stickerai/src/shared/constants/asset_constants.dart';
 import 'package:stickerai/src/shared/dialog/loading_dialog.dart';
 import 'package:stickerai/src/shared/extensions/build_context_extension.dart';
 import 'package:stickerai/src/shared/extensions/extension.dart';
 import 'package:stickerai/src/shared/extensions/list_extension.dart';
 import 'package:stickerai/src/shared/helpers/route_helper.dart';
 import 'package:stickerai/src/shared/widgets/form-area/custom_form_field.dart';
-import 'package:stickerai/src/shared/widgets/image/asset_image.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
 class LandingPage extends ConsumerStatefulWidget {
@@ -89,53 +87,32 @@ class _LandingPageState extends ConsumerState<LandingPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              44.rH,
-              Wrap(
-                direction: Axis.horizontal,
-                children: [
-                  AssetsImage(
-                    imgPath: AssetConstants.images.cuteCatExample,
-                    height: 100.w,
-                    width: 75.w,
+              24.rH,
+              Tooltip(
+                message: "Coming Soon",
+                triggerMode: TooltipTriggerMode.tap,
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: AppColors.greyBackground,
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(12.r),
                   ),
-                  AssetsImage(
-                    imgPath: AssetConstants.images.cuteCatExample2,
-                    height: 100.w,
-                    width: 75.w,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 120.0.h),
+                    child: Center(
+                      child: IconButton(
+                        onPressed: () {
+                          // show tooltip as coming soon
+                        },
+                        icon: const Icon(LucideIcons.image),
+                      ),
+                    ),
                   ),
-                  AssetsImage(
-                    imgPath: AssetConstants.images.cuteCatExample,
-                    height: 100.w,
-                    width: 75.w,
-                  ),
-                  AssetsImage(
-                    imgPath: AssetConstants.images.cuteCatExample2,
-                    height: 100.w,
-                    width: 75.w,
-                  ),
-                  AssetsImage(
-                    imgPath: AssetConstants.images.cuteCatExample,
-                    height: 100.w,
-                    width: 75.w,
-                  ),
-                  AssetsImage(
-                    imgPath: AssetConstants.images.cuteCatExample2,
-                    height: 100.w,
-                    width: 75.w,
-                  ),
-                  AssetsImage(
-                    imgPath: AssetConstants.images.cuteCatExample,
-                    height: 100.w,
-                    width: 75.w,
-                  ),
-                  AssetsImage(
-                    imgPath: AssetConstants.images.cuteCatExample2,
-                    height: 100.w,
-                    width: 75.w,
-                  ),
-                ],
+                ),
               ),
-              44.rH,
+              56.rH,
               Text(
                 "Start With a Prompt",
                 style: TextStyle(
@@ -152,7 +129,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
               ),
               24.rH,
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
                     onTap: () async {
