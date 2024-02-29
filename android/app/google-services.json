@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "943839661493",
-    "project_id": "stickrai",
-    "storage_bucket": "stickrai.appspot.com"
+    "project_number": "121716962646",
+    "project_id": "stickerai-70831",
+    "storage_bucket": "stickerai-70831.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:943839661493:android:e4724361454e4db7869dfc",
+        "mobilesdk_app_id": "1:121716962646:android:782d84c94fc737bfc9d2f7",
         "android_client_info": {
           "package_name": "com.kaya.stickerai"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBDqJkMPGMsWo7LYsUYeG9mWFIw6QefktQ"
+          "current_key": "AIzaSyCnr57OTZtNgGyIFGR2wv2moP3dKU4gvUM"
         }
       ],
       "services": {

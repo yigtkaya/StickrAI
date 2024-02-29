@@ -26,7 +26,7 @@ mixin Environment {
   // String webUrlAddLocale({required String link});
 
   //common variables
-
+  String entitlementId = "premium";
   // numbers 1212
   String appleAppId = '1234567890';
 

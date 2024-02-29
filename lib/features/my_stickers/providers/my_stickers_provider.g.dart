@@ -6,7 +6,7 @@ part of 'my_stickers_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$myStickersHash() => r'a4f3f109407d6765bb23395f6ce3b0b605726e37';
+String _$myStickersHash() => r'4498066ed465c07c9c7b5c94a33fb4d445eb79df';
 
 /// See also [MyStickers].
 @ProviderFor(MyStickers)

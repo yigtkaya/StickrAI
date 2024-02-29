@@ -23,4 +23,7 @@ class HTImages {
   final String smiley = AssetConstants.toPng("smiley");
   final String women = AssetConstants.toPng("women");
   final String pikachu = AssetConstants.toPng("pikachu");
+  final String onboarding = AssetConstants.toPng("onboarding");
+  final String onboarding2 = AssetConstants.toJpeg("onboarding_2");
+  final String logo = AssetConstants.toPng("logo");
 }

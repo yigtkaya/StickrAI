@@ -1,9 +1,12 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gradient_borders/gradient_borders.dart';
+import 'package:stickerai/features/filter/presentation/filter_page.dart';
 import 'package:stickerai/features/generated_image/presentation/generated_image_page.dart';
 import 'package:stickerai/features/landing/providers/landing_providers.dart';
 import 'package:stickerai/settings/settings_sheet.dart';
@@ -258,13 +261,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                     child: IconButton(
                       onPressed: () {
                         context.push(
-                          GeneratedStickerPage.route(
-                            [
-                              'https://replicate.delivery/pbxt/q3NrabKTGvrKP12djee4Vev52gd335lbIYnEk8ZHMALMjc2kA/ComfyUI_00001_.png',
-                              'https://replicate.delivery/pbxt/GdFjbUfCfKrtfIXKHWHovxYAQrvLLedXfcrakbJH1J7GNyZTC/ComfyUI_00002_.png'
-                            ],
-                            _promptTextController.text,
-                          ),
+                          FilterPage.route(),
                         );
                       },
                       icon: Icon(

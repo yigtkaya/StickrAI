@@ -2,8 +2,12 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:stickerai/core/dependecy_injections/global_di_holders.dart';
 import 'package:stickerai/core/environment/environment_banner.dart';
+import 'package:stickerai/core/local_storage/storage_key.dart';
 import 'package:stickerai/features/navigation_bar/presentation/bottom_navigation.dart';
+import 'package:stickerai/features/onboarding/onboarding.dart';
+import 'package:stickerai/features/splash/splash.dart';
 import 'package:stickerai/localization/language_provider.dart';
 import 'package:stickerai/src/app_provider.dart';
 import 'package:stickerai/src/app_state.dart';
@@ -12,6 +16,7 @@ import 'package:stickerai/src/shared/constants/app_constants.dart';
 import 'package:stickerai/src/shared/constants/app_design_constant.dart';
 import 'package:stickerai/src/shared/dialog/app_dialog.dart';
 import 'package:stickerai/src/shared/observer/custom_route_observer.dart';
+import 'package:stickerai/src/shared/widgets/exception/exception_on_launch.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:stickerai/localization/app_localizations.dart';
 
@@ -86,10 +91,15 @@ class App extends ConsumerWidget {
               );
             },
             home: app.map(
-              notAuthorized: (_) => BottomNavBar(),
-              authorized: (_) => BottomNavBar(),
-              error: (_) => BottomNavBar(),
-              loading: (_) => BottomNavBar(),
+              loaded: (_) {
+                final notfirstTime = hiveStorage.readBool(key: StorageKey.firstTime);
+                if (notfirstTime) {
+                  return const BottomNavBar();
+                }
+                return const OnboardingController();
+              },
+              error: (_) => const ExceptionOnAppLaunch(),
+              loading: (_) => const SplashScreen(),
               jailbroken: (value) {
                 return Builder(
                   builder: (context) {

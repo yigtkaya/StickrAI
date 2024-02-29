@@ -49,19 +49,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBDqJkMPGMsWo7LYsUYeG9mWFIw6QefktQ',
-    appId: '1:943839661493:android:e4724361454e4db7869dfc',
-    messagingSenderId: '943839661493',
-    projectId: 'stickrai',
-    storageBucket: 'stickrai.appspot.com',
+    apiKey: 'AIzaSyCnr57OTZtNgGyIFGR2wv2moP3dKU4gvUM',
+    appId: '1:121716962646:android:782d84c94fc737bfc9d2f7',
+    messagingSenderId: '121716962646',
+    projectId: 'stickerai-70831',
+    storageBucket: 'stickerai-70831.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyA91Bn3bVoKSwKkRNWtyKjwZXm4AfjDkT8',
-    appId: '1:943839661493:ios:84ce15004fa56663869dfc',
-    messagingSenderId: '943839661493',
-    projectId: 'stickrai',
-    storageBucket: 'stickrai.appspot.com',
+    apiKey: 'AIzaSyD01JBG5nUN0XmDosy9gdkGdSvjymKMVA4',
+    appId: '1:121716962646:ios:a884ac69e4226ee9c9d2f7',
+    messagingSenderId: '121716962646',
+    projectId: 'stickerai-70831',
+    storageBucket: 'stickerai-70831.appspot.com',
     iosBundleId: 'com.kaya.stickerai',
   );
 }

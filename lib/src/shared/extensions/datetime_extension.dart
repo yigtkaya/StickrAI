@@ -54,46 +54,46 @@ extension DateOnlyCompare on DateTime {
   }
 
   String formatUtils() {
-    String f_weekDay = '';
-    String f_day = '';
-    String f_month = '';
+    var fWeekday = '';
+    var fDay = '';
+    var fMonth = '';
 
     if (day < 10) {
-      f_day = '0$day';
+      fDay = '0$day';
     } else {
-      f_day = day.toString();
+      fDay = day.toString();
     }
 
     if (month < 10) {
-      f_month = '0$month';
+      fMonth = '0$month';
     } else {
-      f_month = month.toString();
+      fMonth = month.toString();
     }
 
     switch (weekday) {
       case 1:
-        f_weekDay = 'Sunday';
+        fWeekday = 'Sunday';
         break;
       case 2:
-        f_weekDay = 'Monday';
+        fWeekday = 'Monday';
         break;
       case 3:
-        f_weekDay = 'Tuesday';
+        fWeekday = 'Tuesday';
         break;
       case 4:
-        f_weekDay = 'Wednesday';
+        fWeekday = 'Wednesday';
         break;
       case 5:
-        f_weekDay = 'Thursday';
+        fWeekday = 'Thursday';
         break;
       case 6:
-        f_weekDay = 'Friday';
+        fWeekday = 'Friday';
         break;
       case 7:
-        f_weekDay = 'Saturday';
+        fWeekday = 'Saturday';
         break;
     }
 
-    return '$f_weekDay, $f_day / $f_month / $year';
+    return '$fWeekday, $fDay / $fMonth / $year';
   }
 }

@@ -10,6 +10,7 @@ import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
 SliverWoltModalSheetPage settingSheet() {
   return WoltModalSheetPage(
+    backgroundColor: Colors.black,
     isTopBarLayerAlwaysVisible: true,
     hasTopBarLayer: true,
     hasSabGradient: false,
@@ -26,14 +27,6 @@ SliverWoltModalSheetPage settingSheet() {
                 color: Colors.white,
                 fontSize: 22.sp,
                 fontWeight: FontWeight.bold,
-              ),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                LucideIcons.x_circle,
-                color: Colors.white,
-                size: 24.h,
               ),
             ),
           ],
@@ -240,9 +233,8 @@ SliverWoltModalSheetPage settingSheet() {
               ),
               IconButton(
                 onPressed: () {
-                  // TODO: copy to clipboard
                   Clipboard.setData(
-                    ClipboardData(
+                    const ClipboardData(
                       text: "ID:{user.id}",
                     ),
                   );

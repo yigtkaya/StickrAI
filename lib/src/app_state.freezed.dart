@@ -20,62 +20,55 @@ mixin _$AppState {
   TResult when<TResult extends Object?>({
     required TResult Function() error,
     required TResult Function() loading,
-    required TResult Function() notAuthorized,
+    required TResult Function() loaded,
     required TResult Function(StoreInfo storeInfo) needsUpdate,
     required TResult Function() jailbroken,
-    required TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)
-        authorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? error,
     TResult? Function()? loading,
-    TResult? Function()? notAuthorized,
+    TResult? Function()? loaded,
     TResult? Function(StoreInfo storeInfo)? needsUpdate,
     TResult? Function()? jailbroken,
-    TResult? Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? error,
     TResult Function()? loading,
-    TResult Function()? notAuthorized,
+    TResult Function()? loaded,
     TResult Function(StoreInfo storeInfo)? needsUpdate,
     TResult Function()? jailbroken,
-    TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppStateError value) error,
-    required TResult Function(_AppStateLoading value) loading,
-    required TResult Function(_AppStateNotAuthorized value) notAuthorized,
+    required TResult Function(AppStateLoading value) loading,
+    required TResult Function(AppStateLoaded value) loaded,
     required TResult Function(AppStateNeedsUpdate value) needsUpdate,
     required TResult Function(AppStateJailbroken value) jailbroken,
-    required TResult Function(AppStateAuthorized value) authorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppStateError value)? error,
-    TResult? Function(_AppStateLoading value)? loading,
-    TResult? Function(_AppStateNotAuthorized value)? notAuthorized,
+    TResult? Function(AppStateLoading value)? loading,
+    TResult? Function(AppStateLoaded value)? loaded,
     TResult? Function(AppStateNeedsUpdate value)? needsUpdate,
     TResult? Function(AppStateJailbroken value)? jailbroken,
-    TResult? Function(AppStateAuthorized value)? authorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppStateError value)? error,
-    TResult Function(_AppStateLoading value)? loading,
-    TResult Function(_AppStateNotAuthorized value)? notAuthorized,
+    TResult Function(AppStateLoading value)? loading,
+    TResult Function(AppStateLoaded value)? loaded,
     TResult Function(AppStateNeedsUpdate value)? needsUpdate,
     TResult Function(AppStateJailbroken value)? jailbroken,
-    TResult Function(AppStateAuthorized value)? authorized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -83,11 +76,13 @@ mixin _$AppState {
 
 /// @nodoc
 abstract class $AppStateCopyWith<$Res> {
-  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) = _$AppStateCopyWithImpl<$Res, AppState>;
+  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
+      _$AppStateCopyWithImpl<$Res, AppState>;
 }
 
 /// @nodoc
-class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCopyWith<$Res> {
+class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
+    implements $AppStateCopyWith<$Res> {
   _$AppStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -98,14 +93,17 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCo
 
 /// @nodoc
 abstract class _$$AppStateErrorImplCopyWith<$Res> {
-  factory _$$AppStateErrorImplCopyWith(_$AppStateErrorImpl value, $Res Function(_$AppStateErrorImpl) then) =
+  factory _$$AppStateErrorImplCopyWith(
+          _$AppStateErrorImpl value, $Res Function(_$AppStateErrorImpl) then) =
       __$$AppStateErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AppStateErrorImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppStateErrorImpl>
+class __$$AppStateErrorImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppStateErrorImpl>
     implements _$$AppStateErrorImplCopyWith<$Res> {
-  __$$AppStateErrorImplCopyWithImpl(_$AppStateErrorImpl _value, $Res Function(_$AppStateErrorImpl) _then)
+  __$$AppStateErrorImplCopyWithImpl(
+      _$AppStateErrorImpl _value, $Res Function(_$AppStateErrorImpl) _then)
       : super(_value, _then);
 }
 
@@ -121,7 +119,8 @@ class _$AppStateErrorImpl implements AppStateError {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$AppStateErrorImpl);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AppStateErrorImpl);
   }
 
   @override
@@ -132,11 +131,9 @@ class _$AppStateErrorImpl implements AppStateError {
   TResult when<TResult extends Object?>({
     required TResult Function() error,
     required TResult Function() loading,
-    required TResult Function() notAuthorized,
+    required TResult Function() loaded,
     required TResult Function(StoreInfo storeInfo) needsUpdate,
     required TResult Function() jailbroken,
-    required TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)
-        authorized,
   }) {
     return error();
   }
@@ -146,10 +143,9 @@ class _$AppStateErrorImpl implements AppStateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? error,
     TResult? Function()? loading,
-    TResult? Function()? notAuthorized,
+    TResult? Function()? loaded,
     TResult? Function(StoreInfo storeInfo)? needsUpdate,
     TResult? Function()? jailbroken,
-    TResult? Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
   }) {
     return error?.call();
   }
@@ -159,10 +155,9 @@ class _$AppStateErrorImpl implements AppStateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? error,
     TResult Function()? loading,
-    TResult Function()? notAuthorized,
+    TResult Function()? loaded,
     TResult Function(StoreInfo storeInfo)? needsUpdate,
     TResult Function()? jailbroken,
-    TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -175,11 +170,10 @@ class _$AppStateErrorImpl implements AppStateError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppStateError value) error,
-    required TResult Function(_AppStateLoading value) loading,
-    required TResult Function(_AppStateNotAuthorized value) notAuthorized,
+    required TResult Function(AppStateLoading value) loading,
+    required TResult Function(AppStateLoaded value) loaded,
     required TResult Function(AppStateNeedsUpdate value) needsUpdate,
     required TResult Function(AppStateJailbroken value) jailbroken,
-    required TResult Function(AppStateAuthorized value) authorized,
   }) {
     return error(this);
   }
@@ -188,11 +182,10 @@ class _$AppStateErrorImpl implements AppStateError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppStateError value)? error,
-    TResult? Function(_AppStateLoading value)? loading,
-    TResult? Function(_AppStateNotAuthorized value)? notAuthorized,
+    TResult? Function(AppStateLoading value)? loading,
+    TResult? Function(AppStateLoaded value)? loaded,
     TResult? Function(AppStateNeedsUpdate value)? needsUpdate,
     TResult? Function(AppStateJailbroken value)? jailbroken,
-    TResult? Function(AppStateAuthorized value)? authorized,
   }) {
     return error?.call(this);
   }
@@ -201,11 +194,10 @@ class _$AppStateErrorImpl implements AppStateError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppStateError value)? error,
-    TResult Function(_AppStateLoading value)? loading,
-    TResult Function(_AppStateNotAuthorized value)? notAuthorized,
+    TResult Function(AppStateLoading value)? loading,
+    TResult Function(AppStateLoaded value)? loaded,
     TResult Function(AppStateNeedsUpdate value)? needsUpdate,
     TResult Function(AppStateJailbroken value)? jailbroken,
-    TResult Function(AppStateAuthorized value)? authorized,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -221,20 +213,23 @@ abstract class AppStateError implements AppState {
 
 /// @nodoc
 abstract class _$$AppStateLoadingImplCopyWith<$Res> {
-  factory _$$AppStateLoadingImplCopyWith(_$AppStateLoadingImpl value, $Res Function(_$AppStateLoadingImpl) then) =
+  factory _$$AppStateLoadingImplCopyWith(_$AppStateLoadingImpl value,
+          $Res Function(_$AppStateLoadingImpl) then) =
       __$$AppStateLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AppStateLoadingImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppStateLoadingImpl>
+class __$$AppStateLoadingImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppStateLoadingImpl>
     implements _$$AppStateLoadingImplCopyWith<$Res> {
-  __$$AppStateLoadingImplCopyWithImpl(_$AppStateLoadingImpl _value, $Res Function(_$AppStateLoadingImpl) _then)
+  __$$AppStateLoadingImplCopyWithImpl(
+      _$AppStateLoadingImpl _value, $Res Function(_$AppStateLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$AppStateLoadingImpl implements _AppStateLoading {
+class _$AppStateLoadingImpl implements AppStateLoading {
   const _$AppStateLoadingImpl();
 
   @override
@@ -244,7 +239,8 @@ class _$AppStateLoadingImpl implements _AppStateLoading {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$AppStateLoadingImpl);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AppStateLoadingImpl);
   }
 
   @override
@@ -255,11 +251,9 @@ class _$AppStateLoadingImpl implements _AppStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() error,
     required TResult Function() loading,
-    required TResult Function() notAuthorized,
+    required TResult Function() loaded,
     required TResult Function(StoreInfo storeInfo) needsUpdate,
     required TResult Function() jailbroken,
-    required TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)
-        authorized,
   }) {
     return loading();
   }
@@ -269,10 +263,9 @@ class _$AppStateLoadingImpl implements _AppStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? error,
     TResult? Function()? loading,
-    TResult? Function()? notAuthorized,
+    TResult? Function()? loaded,
     TResult? Function(StoreInfo storeInfo)? needsUpdate,
     TResult? Function()? jailbroken,
-    TResult? Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
   }) {
     return loading?.call();
   }
@@ -282,10 +275,9 @@ class _$AppStateLoadingImpl implements _AppStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? error,
     TResult Function()? loading,
-    TResult Function()? notAuthorized,
+    TResult Function()? loaded,
     TResult Function(StoreInfo storeInfo)? needsUpdate,
     TResult Function()? jailbroken,
-    TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -298,11 +290,10 @@ class _$AppStateLoadingImpl implements _AppStateLoading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppStateError value) error,
-    required TResult Function(_AppStateLoading value) loading,
-    required TResult Function(_AppStateNotAuthorized value) notAuthorized,
+    required TResult Function(AppStateLoading value) loading,
+    required TResult Function(AppStateLoaded value) loaded,
     required TResult Function(AppStateNeedsUpdate value) needsUpdate,
     required TResult Function(AppStateJailbroken value) jailbroken,
-    required TResult Function(AppStateAuthorized value) authorized,
   }) {
     return loading(this);
   }
@@ -311,11 +302,10 @@ class _$AppStateLoadingImpl implements _AppStateLoading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppStateError value)? error,
-    TResult? Function(_AppStateLoading value)? loading,
-    TResult? Function(_AppStateNotAuthorized value)? notAuthorized,
+    TResult? Function(AppStateLoading value)? loading,
+    TResult? Function(AppStateLoaded value)? loaded,
     TResult? Function(AppStateNeedsUpdate value)? needsUpdate,
     TResult? Function(AppStateJailbroken value)? jailbroken,
-    TResult? Function(AppStateAuthorized value)? authorized,
   }) {
     return loading?.call(this);
   }
@@ -324,11 +314,10 @@ class _$AppStateLoadingImpl implements _AppStateLoading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppStateError value)? error,
-    TResult Function(_AppStateLoading value)? loading,
-    TResult Function(_AppStateNotAuthorized value)? notAuthorized,
+    TResult Function(AppStateLoading value)? loading,
+    TResult Function(AppStateLoaded value)? loaded,
     TResult Function(AppStateNeedsUpdate value)? needsUpdate,
     TResult Function(AppStateJailbroken value)? jailbroken,
-    TResult Function(AppStateAuthorized value)? authorized,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -338,38 +327,40 @@ class _$AppStateLoadingImpl implements _AppStateLoading {
   }
 }
 
-abstract class _AppStateLoading implements AppState {
-  const factory _AppStateLoading() = _$AppStateLoadingImpl;
+abstract class AppStateLoading implements AppState {
+  const factory AppStateLoading() = _$AppStateLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$AppStateNotAuthorizedImplCopyWith<$Res> {
-  factory _$$AppStateNotAuthorizedImplCopyWith(
-          _$AppStateNotAuthorizedImpl value, $Res Function(_$AppStateNotAuthorizedImpl) then) =
-      __$$AppStateNotAuthorizedImplCopyWithImpl<$Res>;
+abstract class _$$AppStateLoadedImplCopyWith<$Res> {
+  factory _$$AppStateLoadedImplCopyWith(_$AppStateLoadedImpl value,
+          $Res Function(_$AppStateLoadedImpl) then) =
+      __$$AppStateLoadedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AppStateNotAuthorizedImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppStateNotAuthorizedImpl>
-    implements _$$AppStateNotAuthorizedImplCopyWith<$Res> {
-  __$$AppStateNotAuthorizedImplCopyWithImpl(
-      _$AppStateNotAuthorizedImpl _value, $Res Function(_$AppStateNotAuthorizedImpl) _then)
+class __$$AppStateLoadedImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppStateLoadedImpl>
+    implements _$$AppStateLoadedImplCopyWith<$Res> {
+  __$$AppStateLoadedImplCopyWithImpl(
+      _$AppStateLoadedImpl _value, $Res Function(_$AppStateLoadedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$AppStateNotAuthorizedImpl implements _AppStateNotAuthorized {
-  const _$AppStateNotAuthorizedImpl();
+class _$AppStateLoadedImpl implements AppStateLoaded {
+  const _$AppStateLoadedImpl();
 
   @override
   String toString() {
-    return 'AppState.notAuthorized()';
+    return 'AppState.loaded()';
   }
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$AppStateNotAuthorizedImpl);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AppStateLoadedImpl);
   }
 
   @override
@@ -380,13 +371,11 @@ class _$AppStateNotAuthorizedImpl implements _AppStateNotAuthorized {
   TResult when<TResult extends Object?>({
     required TResult Function() error,
     required TResult Function() loading,
-    required TResult Function() notAuthorized,
+    required TResult Function() loaded,
     required TResult Function(StoreInfo storeInfo) needsUpdate,
     required TResult Function() jailbroken,
-    required TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)
-        authorized,
   }) {
-    return notAuthorized();
+    return loaded();
   }
 
   @override
@@ -394,12 +383,11 @@ class _$AppStateNotAuthorizedImpl implements _AppStateNotAuthorized {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? error,
     TResult? Function()? loading,
-    TResult? Function()? notAuthorized,
+    TResult? Function()? loaded,
     TResult? Function(StoreInfo storeInfo)? needsUpdate,
     TResult? Function()? jailbroken,
-    TResult? Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
   }) {
-    return notAuthorized?.call();
+    return loaded?.call();
   }
 
   @override
@@ -407,14 +395,13 @@ class _$AppStateNotAuthorizedImpl implements _AppStateNotAuthorized {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? error,
     TResult Function()? loading,
-    TResult Function()? notAuthorized,
+    TResult Function()? loaded,
     TResult Function(StoreInfo storeInfo)? needsUpdate,
     TResult Function()? jailbroken,
-    TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
     required TResult orElse(),
   }) {
-    if (notAuthorized != null) {
-      return notAuthorized();
+    if (loaded != null) {
+      return loaded();
     }
     return orElse();
   }
@@ -423,64 +410,62 @@ class _$AppStateNotAuthorizedImpl implements _AppStateNotAuthorized {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppStateError value) error,
-    required TResult Function(_AppStateLoading value) loading,
-    required TResult Function(_AppStateNotAuthorized value) notAuthorized,
+    required TResult Function(AppStateLoading value) loading,
+    required TResult Function(AppStateLoaded value) loaded,
     required TResult Function(AppStateNeedsUpdate value) needsUpdate,
     required TResult Function(AppStateJailbroken value) jailbroken,
-    required TResult Function(AppStateAuthorized value) authorized,
   }) {
-    return notAuthorized(this);
+    return loaded(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppStateError value)? error,
-    TResult? Function(_AppStateLoading value)? loading,
-    TResult? Function(_AppStateNotAuthorized value)? notAuthorized,
+    TResult? Function(AppStateLoading value)? loading,
+    TResult? Function(AppStateLoaded value)? loaded,
     TResult? Function(AppStateNeedsUpdate value)? needsUpdate,
     TResult? Function(AppStateJailbroken value)? jailbroken,
-    TResult? Function(AppStateAuthorized value)? authorized,
   }) {
-    return notAuthorized?.call(this);
+    return loaded?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppStateError value)? error,
-    TResult Function(_AppStateLoading value)? loading,
-    TResult Function(_AppStateNotAuthorized value)? notAuthorized,
+    TResult Function(AppStateLoading value)? loading,
+    TResult Function(AppStateLoaded value)? loaded,
     TResult Function(AppStateNeedsUpdate value)? needsUpdate,
     TResult Function(AppStateJailbroken value)? jailbroken,
-    TResult Function(AppStateAuthorized value)? authorized,
     required TResult orElse(),
   }) {
-    if (notAuthorized != null) {
-      return notAuthorized(this);
+    if (loaded != null) {
+      return loaded(this);
     }
     return orElse();
   }
 }
 
-abstract class _AppStateNotAuthorized implements AppState {
-  const factory _AppStateNotAuthorized() = _$AppStateNotAuthorizedImpl;
+abstract class AppStateLoaded implements AppState {
+  const factory AppStateLoaded() = _$AppStateLoadedImpl;
 }
 
 /// @nodoc
 abstract class _$$AppStateNeedsUpdateImplCopyWith<$Res> {
-  factory _$$AppStateNeedsUpdateImplCopyWith(
-          _$AppStateNeedsUpdateImpl value, $Res Function(_$AppStateNeedsUpdateImpl) then) =
+  factory _$$AppStateNeedsUpdateImplCopyWith(_$AppStateNeedsUpdateImpl value,
+          $Res Function(_$AppStateNeedsUpdateImpl) then) =
       __$$AppStateNeedsUpdateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({StoreInfo storeInfo});
 }
 
 /// @nodoc
-class __$$AppStateNeedsUpdateImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppStateNeedsUpdateImpl>
+class __$$AppStateNeedsUpdateImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppStateNeedsUpdateImpl>
     implements _$$AppStateNeedsUpdateImplCopyWith<$Res> {
-  __$$AppStateNeedsUpdateImplCopyWithImpl(
-      _$AppStateNeedsUpdateImpl _value, $Res Function(_$AppStateNeedsUpdateImpl) _then)
+  __$$AppStateNeedsUpdateImplCopyWithImpl(_$AppStateNeedsUpdateImpl _value,
+      $Res Function(_$AppStateNeedsUpdateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -515,7 +500,8 @@ class _$AppStateNeedsUpdateImpl implements AppStateNeedsUpdate {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppStateNeedsUpdateImpl &&
-            (identical(other.storeInfo, storeInfo) || other.storeInfo == storeInfo));
+            (identical(other.storeInfo, storeInfo) ||
+                other.storeInfo == storeInfo));
   }
 
   @override
@@ -525,18 +511,17 @@ class _$AppStateNeedsUpdateImpl implements AppStateNeedsUpdate {
   @override
   @pragma('vm:prefer-inline')
   _$$AppStateNeedsUpdateImplCopyWith<_$AppStateNeedsUpdateImpl> get copyWith =>
-      __$$AppStateNeedsUpdateImplCopyWithImpl<_$AppStateNeedsUpdateImpl>(this, _$identity);
+      __$$AppStateNeedsUpdateImplCopyWithImpl<_$AppStateNeedsUpdateImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() error,
     required TResult Function() loading,
-    required TResult Function() notAuthorized,
+    required TResult Function() loaded,
     required TResult Function(StoreInfo storeInfo) needsUpdate,
     required TResult Function() jailbroken,
-    required TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)
-        authorized,
   }) {
     return needsUpdate(storeInfo);
   }
@@ -546,10 +531,9 @@ class _$AppStateNeedsUpdateImpl implements AppStateNeedsUpdate {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? error,
     TResult? Function()? loading,
-    TResult? Function()? notAuthorized,
+    TResult? Function()? loaded,
     TResult? Function(StoreInfo storeInfo)? needsUpdate,
     TResult? Function()? jailbroken,
-    TResult? Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
   }) {
     return needsUpdate?.call(storeInfo);
   }
@@ -559,10 +543,9 @@ class _$AppStateNeedsUpdateImpl implements AppStateNeedsUpdate {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? error,
     TResult Function()? loading,
-    TResult Function()? notAuthorized,
+    TResult Function()? loaded,
     TResult Function(StoreInfo storeInfo)? needsUpdate,
     TResult Function()? jailbroken,
-    TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
     required TResult orElse(),
   }) {
     if (needsUpdate != null) {
@@ -575,11 +558,10 @@ class _$AppStateNeedsUpdateImpl implements AppStateNeedsUpdate {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppStateError value) error,
-    required TResult Function(_AppStateLoading value) loading,
-    required TResult Function(_AppStateNotAuthorized value) notAuthorized,
+    required TResult Function(AppStateLoading value) loading,
+    required TResult Function(AppStateLoaded value) loaded,
     required TResult Function(AppStateNeedsUpdate value) needsUpdate,
     required TResult Function(AppStateJailbroken value) jailbroken,
-    required TResult Function(AppStateAuthorized value) authorized,
   }) {
     return needsUpdate(this);
   }
@@ -588,11 +570,10 @@ class _$AppStateNeedsUpdateImpl implements AppStateNeedsUpdate {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppStateError value)? error,
-    TResult? Function(_AppStateLoading value)? loading,
-    TResult? Function(_AppStateNotAuthorized value)? notAuthorized,
+    TResult? Function(AppStateLoading value)? loading,
+    TResult? Function(AppStateLoaded value)? loaded,
     TResult? Function(AppStateNeedsUpdate value)? needsUpdate,
     TResult? Function(AppStateJailbroken value)? jailbroken,
-    TResult? Function(AppStateAuthorized value)? authorized,
   }) {
     return needsUpdate?.call(this);
   }
@@ -601,11 +582,10 @@ class _$AppStateNeedsUpdateImpl implements AppStateNeedsUpdate {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppStateError value)? error,
-    TResult Function(_AppStateLoading value)? loading,
-    TResult Function(_AppStateNotAuthorized value)? notAuthorized,
+    TResult Function(AppStateLoading value)? loading,
+    TResult Function(AppStateLoaded value)? loaded,
     TResult Function(AppStateNeedsUpdate value)? needsUpdate,
     TResult Function(AppStateJailbroken value)? jailbroken,
-    TResult Function(AppStateAuthorized value)? authorized,
     required TResult orElse(),
   }) {
     if (needsUpdate != null) {
@@ -616,24 +596,28 @@ class _$AppStateNeedsUpdateImpl implements AppStateNeedsUpdate {
 }
 
 abstract class AppStateNeedsUpdate implements AppState {
-  const factory AppStateNeedsUpdate({required final StoreInfo storeInfo}) = _$AppStateNeedsUpdateImpl;
+  const factory AppStateNeedsUpdate({required final StoreInfo storeInfo}) =
+      _$AppStateNeedsUpdateImpl;
 
   StoreInfo get storeInfo;
   @JsonKey(ignore: true)
-  _$$AppStateNeedsUpdateImplCopyWith<_$AppStateNeedsUpdateImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$AppStateNeedsUpdateImplCopyWith<_$AppStateNeedsUpdateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$AppStateJailbrokenImplCopyWith<$Res> {
-  factory _$$AppStateJailbrokenImplCopyWith(
-          _$AppStateJailbrokenImpl value, $Res Function(_$AppStateJailbrokenImpl) then) =
+  factory _$$AppStateJailbrokenImplCopyWith(_$AppStateJailbrokenImpl value,
+          $Res Function(_$AppStateJailbrokenImpl) then) =
       __$$AppStateJailbrokenImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AppStateJailbrokenImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppStateJailbrokenImpl>
+class __$$AppStateJailbrokenImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppStateJailbrokenImpl>
     implements _$$AppStateJailbrokenImplCopyWith<$Res> {
-  __$$AppStateJailbrokenImplCopyWithImpl(_$AppStateJailbrokenImpl _value, $Res Function(_$AppStateJailbrokenImpl) _then)
+  __$$AppStateJailbrokenImplCopyWithImpl(_$AppStateJailbrokenImpl _value,
+      $Res Function(_$AppStateJailbrokenImpl) _then)
       : super(_value, _then);
 }
 
@@ -649,7 +633,8 @@ class _$AppStateJailbrokenImpl implements AppStateJailbroken {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$AppStateJailbrokenImpl);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AppStateJailbrokenImpl);
   }
 
   @override
@@ -660,11 +645,9 @@ class _$AppStateJailbrokenImpl implements AppStateJailbroken {
   TResult when<TResult extends Object?>({
     required TResult Function() error,
     required TResult Function() loading,
-    required TResult Function() notAuthorized,
+    required TResult Function() loaded,
     required TResult Function(StoreInfo storeInfo) needsUpdate,
     required TResult Function() jailbroken,
-    required TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)
-        authorized,
   }) {
     return jailbroken();
   }
@@ -674,10 +657,9 @@ class _$AppStateJailbrokenImpl implements AppStateJailbroken {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? error,
     TResult? Function()? loading,
-    TResult? Function()? notAuthorized,
+    TResult? Function()? loaded,
     TResult? Function(StoreInfo storeInfo)? needsUpdate,
     TResult? Function()? jailbroken,
-    TResult? Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
   }) {
     return jailbroken?.call();
   }
@@ -687,10 +669,9 @@ class _$AppStateJailbrokenImpl implements AppStateJailbroken {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? error,
     TResult Function()? loading,
-    TResult Function()? notAuthorized,
+    TResult Function()? loaded,
     TResult Function(StoreInfo storeInfo)? needsUpdate,
     TResult Function()? jailbroken,
-    TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
     required TResult orElse(),
   }) {
     if (jailbroken != null) {
@@ -703,11 +684,10 @@ class _$AppStateJailbrokenImpl implements AppStateJailbroken {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppStateError value) error,
-    required TResult Function(_AppStateLoading value) loading,
-    required TResult Function(_AppStateNotAuthorized value) notAuthorized,
+    required TResult Function(AppStateLoading value) loading,
+    required TResult Function(AppStateLoaded value) loaded,
     required TResult Function(AppStateNeedsUpdate value) needsUpdate,
     required TResult Function(AppStateJailbroken value) jailbroken,
-    required TResult Function(AppStateAuthorized value) authorized,
   }) {
     return jailbroken(this);
   }
@@ -716,11 +696,10 @@ class _$AppStateJailbrokenImpl implements AppStateJailbroken {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppStateError value)? error,
-    TResult? Function(_AppStateLoading value)? loading,
-    TResult? Function(_AppStateNotAuthorized value)? notAuthorized,
+    TResult? Function(AppStateLoading value)? loading,
+    TResult? Function(AppStateLoaded value)? loaded,
     TResult? Function(AppStateNeedsUpdate value)? needsUpdate,
     TResult? Function(AppStateJailbroken value)? jailbroken,
-    TResult? Function(AppStateAuthorized value)? authorized,
   }) {
     return jailbroken?.call(this);
   }
@@ -729,11 +708,10 @@ class _$AppStateJailbrokenImpl implements AppStateJailbroken {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppStateError value)? error,
-    TResult Function(_AppStateLoading value)? loading,
-    TResult Function(_AppStateNotAuthorized value)? notAuthorized,
+    TResult Function(AppStateLoading value)? loading,
+    TResult Function(AppStateLoaded value)? loaded,
     TResult Function(AppStateNeedsUpdate value)? needsUpdate,
     TResult Function(AppStateJailbroken value)? jailbroken,
-    TResult Function(AppStateAuthorized value)? authorized,
     required TResult orElse(),
   }) {
     if (jailbroken != null) {
@@ -745,192 +723,4 @@ class _$AppStateJailbrokenImpl implements AppStateJailbroken {
 
 abstract class AppStateJailbroken implements AppState {
   const factory AppStateJailbroken() = _$AppStateJailbrokenImpl;
-}
-
-/// @nodoc
-abstract class _$$AppStateAuthorizedImplCopyWith<$Res> {
-  factory _$$AppStateAuthorizedImplCopyWith(
-          _$AppStateAuthorizedImpl value, $Res Function(_$AppStateAuthorizedImpl) then) =
-      __$$AppStateAuthorizedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String token, String refreshToken, String refreshTokenExpiration, String userId});
-}
-
-/// @nodoc
-class __$$AppStateAuthorizedImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppStateAuthorizedImpl>
-    implements _$$AppStateAuthorizedImplCopyWith<$Res> {
-  __$$AppStateAuthorizedImplCopyWithImpl(_$AppStateAuthorizedImpl _value, $Res Function(_$AppStateAuthorizedImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? token = null,
-    Object? refreshToken = null,
-    Object? refreshTokenExpiration = null,
-    Object? userId = null,
-  }) {
-    return _then(_$AppStateAuthorizedImpl(
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String,
-      refreshToken: null == refreshToken
-          ? _value.refreshToken
-          : refreshToken // ignore: cast_nullable_to_non_nullable
-              as String,
-      refreshTokenExpiration: null == refreshTokenExpiration
-          ? _value.refreshTokenExpiration
-          : refreshTokenExpiration // ignore: cast_nullable_to_non_nullable
-              as String,
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$AppStateAuthorizedImpl implements AppStateAuthorized {
-  const _$AppStateAuthorizedImpl(
-      {required this.token, required this.refreshToken, required this.refreshTokenExpiration, required this.userId});
-
-  @override
-  final String token;
-  @override
-  final String refreshToken;
-  @override
-  final String refreshTokenExpiration;
-  @override
-  final String userId;
-
-  @override
-  String toString() {
-    return 'AppState.authorized(token: $token, refreshToken: $refreshToken, refreshTokenExpiration: $refreshTokenExpiration, userId: $userId)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AppStateAuthorizedImpl &&
-            (identical(other.token, token) || other.token == token) &&
-            (identical(other.refreshToken, refreshToken) || other.refreshToken == refreshToken) &&
-            (identical(other.refreshTokenExpiration, refreshTokenExpiration) ||
-                other.refreshTokenExpiration == refreshTokenExpiration) &&
-            (identical(other.userId, userId) || other.userId == userId));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, token, refreshToken, refreshTokenExpiration, userId);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AppStateAuthorizedImplCopyWith<_$AppStateAuthorizedImpl> get copyWith =>
-      __$$AppStateAuthorizedImplCopyWithImpl<_$AppStateAuthorizedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() error,
-    required TResult Function() loading,
-    required TResult Function() notAuthorized,
-    required TResult Function(StoreInfo storeInfo) needsUpdate,
-    required TResult Function() jailbroken,
-    required TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)
-        authorized,
-  }) {
-    return authorized(token, refreshToken, refreshTokenExpiration, userId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? error,
-    TResult? Function()? loading,
-    TResult? Function()? notAuthorized,
-    TResult? Function(StoreInfo storeInfo)? needsUpdate,
-    TResult? Function()? jailbroken,
-    TResult? Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
-  }) {
-    return authorized?.call(token, refreshToken, refreshTokenExpiration, userId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? error,
-    TResult Function()? loading,
-    TResult Function()? notAuthorized,
-    TResult Function(StoreInfo storeInfo)? needsUpdate,
-    TResult Function()? jailbroken,
-    TResult Function(String token, String refreshToken, String refreshTokenExpiration, String userId)? authorized,
-    required TResult orElse(),
-  }) {
-    if (authorized != null) {
-      return authorized(token, refreshToken, refreshTokenExpiration, userId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppStateError value) error,
-    required TResult Function(_AppStateLoading value) loading,
-    required TResult Function(_AppStateNotAuthorized value) notAuthorized,
-    required TResult Function(AppStateNeedsUpdate value) needsUpdate,
-    required TResult Function(AppStateJailbroken value) jailbroken,
-    required TResult Function(AppStateAuthorized value) authorized,
-  }) {
-    return authorized(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppStateError value)? error,
-    TResult? Function(_AppStateLoading value)? loading,
-    TResult? Function(_AppStateNotAuthorized value)? notAuthorized,
-    TResult? Function(AppStateNeedsUpdate value)? needsUpdate,
-    TResult? Function(AppStateJailbroken value)? jailbroken,
-    TResult? Function(AppStateAuthorized value)? authorized,
-  }) {
-    return authorized?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppStateError value)? error,
-    TResult Function(_AppStateLoading value)? loading,
-    TResult Function(_AppStateNotAuthorized value)? notAuthorized,
-    TResult Function(AppStateNeedsUpdate value)? needsUpdate,
-    TResult Function(AppStateJailbroken value)? jailbroken,
-    TResult Function(AppStateAuthorized value)? authorized,
-    required TResult orElse(),
-  }) {
-    if (authorized != null) {
-      return authorized(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AppStateAuthorized implements AppState {
-  const factory AppStateAuthorized(
-      {required final String token,
-      required final String refreshToken,
-      required final String refreshTokenExpiration,
-      required final String userId}) = _$AppStateAuthorizedImpl;
-
-  String get token;
-  String get refreshToken;
-  String get refreshTokenExpiration;
-  String get userId;
-  @JsonKey(ignore: true)
-  _$$AppStateAuthorizedImplCopyWith<_$AppStateAuthorizedImpl> get copyWith => throw _privateConstructorUsedError;
 }

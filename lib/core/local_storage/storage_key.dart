@@ -25,7 +25,7 @@ enum StorageKey {
 
   /// for face id we are checking if user used log out option
   /// stored type is [bool]
-  logout,
+  firstTime,
 
   // otp time stamp
   /// otpTimestamp type is [String]

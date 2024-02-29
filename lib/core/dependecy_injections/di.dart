@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_jailbreak_detection/flutter_jailbreak_detection.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:purchases_flutter/models/store.dart';
 import 'package:stickerai/core/dependecy_injections/di_development.dart';
 import 'package:stickerai/core/dependecy_injections/di_production.dart';
 import 'package:stickerai/core/dependecy_injections/di_staging.dart';
@@ -21,6 +22,7 @@ import 'package:stickerai/src/shared/handlers/permission_handler.dart';
 import 'package:stickerai/src/shared/helpers/analytics_helper.dart';
 import 'package:stickerai/src/shared/observer/statusbar_manager.dart';
 import 'package:stickerai/store_version_check/store_check.dart';
+import 'package:stickerai/store_version_check/store_config.dart';
 import 'package:stickerai/store_version_check/store_info.dart';
 
 Future<({AppState appState})> setupDI({
@@ -44,6 +46,21 @@ Future<({AppState appState})> setupDI({
   } else {
     await setupDevDI();
   }
+
+  if (Platform.isIOS || Platform.isMacOS) {
+    StoreConfig(
+      store: Store.appStore,
+      apiKey: "appl_tuJeiAivhYBFcFjvrmRUTNuUCBI",
+    );
+  } else if (Platform.isAndroid) {
+    StoreConfig(
+      store: Store.playStore,
+      apiKey: "goog_HgRTMsVDPRoQNayLHfvVMINcKWn",
+    );
+  }
+
+  await configureSDK();
+
   await PermissionHandler().requestNotificationPermission();
 
   OneSignal.initialize(env.oneSignalKey);
@@ -107,7 +124,7 @@ Future<AppState> _getAppState() async {
   }
 
   //if (hiveStorage.readBool(key: StorageKey.logout, defaultValue: true)) { hiveStorage.writeBool(key: StorageKey.logout, value: true);
-  return const AppState.notAuthorized();
+  return const AppState.loaded();
   //}
   // final autoLoginResponse = await autoLoginRequest();
   //if (autoLoginResponse.token == null || autoLoginResponse.customer == null) {

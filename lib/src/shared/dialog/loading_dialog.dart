@@ -27,7 +27,6 @@ class _LoadingDialogState extends State<LoadingDialog> {
 
   @override
   void initState() {
-    // TODO: implement initState
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         selectedIndex = (selectedIndex + 1) % images.length;
@@ -38,7 +37,6 @@ class _LoadingDialogState extends State<LoadingDialog> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     timer.cancel();
     super.dispose();
   }

@@ -2,8 +2,6 @@ import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:stickerai/core/dependecy_injections/global_di_holders.dart';
-import 'package:stickerai/core/local_storage/storage_key.dart';
 import 'package:stickerai/src/app_state.dart';
 import 'package:stickerai/src/shared/extensions/string_extension.dart';
 import 'package:stickerai/src/shared/handlers/deep_link_handler.dart';
@@ -13,7 +11,7 @@ final appProvider = StateNotifierProvider<AppNotifier, AppState>((ref) {
 });
 
 class AppNotifier extends StateNotifier<AppState> {
-  AppNotifier(this.ref) : super(const AppState.notAuthorized());
+  AppNotifier(this.ref) : super(const AppState.loading());
   final Ref ref;
 
   Future<void> init(AppState appState) async {
@@ -22,17 +20,6 @@ class AppNotifier extends StateNotifier<AppState> {
     state = appState;
     await Future.delayed(const Duration(milliseconds: 100));
     if (mounted) {
-      final currentState = state;
-      if (currentState is AppStateAuthorized) {
-        //update token and customer
-        // loggedIn(
-        //   token: currentState.token,
-        //   /*customer: currentState.customer*/
-        //   refreshToken: currentState.refreshToken,
-        //   refreshTokenExpiration: currentState.refreshTokenExpiration,
-        //   userId: currentState.userId,
-        // );
-      }
       deepLinkHandlers();
     }
   }
@@ -58,13 +45,6 @@ class AppNotifier extends StateNotifier<AppState> {
 
   void reLaunch(BuildContext context) {
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      if (hiveStorage.readBool(key: StorageKey.logout, defaultValue: true)) {
-        const AppState.notAuthorized();
-        if (mounted && context.mounted) {
-          // context.pushAndRemoveUntil(WelcomeView.route());
-        }
-        return;
-      }
       refreshLaunch(context);
     });
   }

@@ -1,4 +1,4 @@
-import 'dart:ui';
+// ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -50,7 +50,7 @@ class FilterPage extends ConsumerWidget {
     final upscaleStepsController = TextEditingController(text: "10");
     final promptTextController = TextEditingController();
     final negativePromptTextController = TextEditingController();
-    var isUpscaleEnabled = ref.watch(isUpscaleEnabledProvider);
+    final isUpscaleEnabled = ref.watch(isUpscaleEnabledProvider);
 
     return Scaffold(
       backgroundColor: Colors.black,
