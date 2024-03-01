@@ -36,7 +36,7 @@ class PurhcaseRepository {
   static Future<List<Package>?> loadPackages() async {
     try {
       //fetchOffers -1
-      var result = await fetchOffers();
+      final result = await fetchOffers();
       if (result == null) return [];
 
       return result.current!.availablePackages;

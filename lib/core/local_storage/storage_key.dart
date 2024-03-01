@@ -19,9 +19,9 @@ enum StorageKey {
   // /// stored type is [String]
   // userId,
 
-  // /// language id
-  // /// stored type is [int], Language model id
-  // languageId,
+  /// language id
+  /// stored type is [int], Language model id
+  languageId,
 
   /// for face id we are checking if user used log out option
   /// stored type is [bool]

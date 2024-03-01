@@ -66,7 +66,7 @@ Future<({AppState appState})> setupDI({
   OneSignal.initialize(env.oneSignalKey);
 
   OneSignal.Notifications.addClickListener((event) {
-    print("Clicked notification: \n${event.notification.jsonRepresentation().replaceAll("\\n", "\n")}");
+    log("Clicked notification: \n${event.notification.jsonRepresentation().replaceAll("\\n", "\n")}");
   });
 
   OneSignal.InAppMessages.addClickListener((event) {

@@ -38,8 +38,5 @@
             android:name="flutterEmbedding"
             android:value="2" />
 
-                   <meta-data
-              android:name="AdaptyPublicSdkKey"
-              android:value="public_live_Rp9FuG4G.L0D0eAZqixyZYm00AT5b" />
     </application>
 </manifest>

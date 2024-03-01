@@ -7,6 +7,7 @@ import 'package:stickerai/src/shared/constants/app_color_constants.dart';
 import 'package:stickerai/src/shared/constants/asset_constants.dart';
 import 'package:stickerai/src/shared/extensions/build_context_extension.dart';
 import 'package:stickerai/src/shared/extensions/extension.dart';
+import 'package:stickerai/src/shared/extensions/list_extension.dart';
 import 'package:stickerai/src/shared/helpers/route_helper.dart';
 import 'package:stickerai/src/shared/widgets/button/custom_elevated_button.dart';
 
@@ -146,6 +147,20 @@ class _PayWallState extends ConsumerState<PayWall> {
                   36.rH,
                   offers.when(
                     data: (data) {
+                      if (data.isNullOrEmpty) {
+                        return Padding(
+                          padding: EdgeInsets.symmetric(vertical: 8.0.h),
+                          child: Text(
+                            'No offers available, Please try again later.',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: AppColors.neutralWhite,
+                              fontSize: 20.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        );
+                      }
                       return Column(
                         children: [
                           ListView.separated(

@@ -1145,18 +1145,18 @@ packages:
     dependency: "direct main"
     description:
       name: purchases_flutter
-      sha256: "0cd388a9d6bffedf79be76b6226778820495409acdf2a9cb3e80b172915934e4"
+      sha256: "83d1c0e752d3b351e993037892eb8008a2a40e3ff090acc1b1e3732ce463a834"
       url: "https://pub.dev"
     source: hosted
-    version: "6.21.1"
+    version: "6.22.0"
   purchases_ui_flutter:
     dependency: "direct main"
     description:
       name: purchases_ui_flutter
-      sha256: "0839d9a003920c32ce6677ed6c3d759356068eb38dff00567c58b16af56b1806"
+      sha256: de5c9091dab2ae68364188fd6577e52fbec8cf4af4e451fa838d8fd53ac66393
       url: "https://pub.dev"
     source: hosted
-    version: "6.21.1"
+    version: "6.22.0"
   riverpod:
     dependency: transitive
     description:
@@ -1502,10 +1502,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: b3d56ff4341b8f182b96aceb2fa20e3dcb336b9f867bc0eafc0de10f1048e957
+      sha256: a2662fb1f114f4296cf3f5a50786a2d888268d7776cf681aa17d660ffa23b246
       url: "https://pub.dev"
     source: hosted
-    version: "13.0.0"
+    version: "14.0.0"
   watcher:
     dependency: transitive
     description:

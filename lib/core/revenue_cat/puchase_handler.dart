@@ -11,7 +11,7 @@ class PurhcaseHandler {
 
       return current == null ? [] : [current];
     } on PlatformException catch (e) {
-      print('PurhcaseHandler: getOffers => ${e.message}');
+      log('PurhcaseHandler: getOffers => ${e.message}');
       return [];
     }
   }
@@ -31,7 +31,7 @@ class PurhcaseHandler {
   static Future<List<Package>?> loadPackages() async {
     try {
       //fetchOffers -1
-      var result = await fetchOffers();
+      final result = await fetchOffers();
       if (result == null) return [];
 
       return result.current!.availablePackages;
