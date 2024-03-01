@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gradient_borders/gradient_borders.dart';
+import 'package:stickerai/core/revenue_cat/app_data.dart';
 import 'package:stickerai/features/filter/presentation/filter_page.dart';
 import 'package:stickerai/features/generated_image/presentation/generated_image_page.dart';
 import 'package:stickerai/features/landing/providers/landing_providers.dart';
@@ -78,7 +79,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                 },
                 pageListBuilder: (BuildContext context) {
                   return [
-                    settingSheet(),
+                    settingSheet(context),
                   ];
                 },
               );
@@ -175,6 +176,39 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                 children: [
                   GestureDetector(
                     onTap: () async {
+                      if (appData.dailyUsageLimit >= 3) {
+                        showModalBottomSheet(
+                          useRootNavigator: true,
+                          isDismissible: true,
+                          isScrollControlled: true,
+                          backgroundColor: Colors.black,
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const PayWall();
+                          },
+                        );
+                        return;
+                      }
+                      if (!appData.entitlementIsActive) {
+                        showModalBottomSheet(
+                          useRootNavigator: true,
+                          isDismissible: true,
+                          isScrollControlled: true,
+                          backgroundColor: Colors.black,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
+                          ),
+                          context: context,
+                          builder: (BuildContext context) {
+                            return StatefulBuilder(
+                              builder: (BuildContext context, StateSetter setModalState) {
+                                return const PayWall();
+                              },
+                            );
+                          },
+                        );
+                        return;
+                      }
                       if (_promptTextController.text.isEmpty) {
                         FToast().init(context).showToast(
                               gravity: ToastGravity.BOTTOM,
@@ -281,7 +315,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                     child: IconButton(
                       onPressed: () {
                         context.push(
-                          PayWall.route(),
+                          FilterPage.route(),
                         );
                       },
                       icon: Icon(

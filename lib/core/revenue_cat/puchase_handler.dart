@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/services.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
@@ -20,6 +22,7 @@ class PurhcaseHandler {
     try {
       offerings = await Purchases.getOfferings();
     } on Exception catch (e) {
+      log(e.toString());
       return null;
     }
     return offerings;

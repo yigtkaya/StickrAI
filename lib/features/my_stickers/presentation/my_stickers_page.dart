@@ -35,7 +35,7 @@ class MyStickersPage extends ConsumerWidget {
                 },
                 pageListBuilder: (BuildContext context) {
                   return [
-                    settingSheet(),
+                    settingSheet(context),
                   ];
                 },
               );

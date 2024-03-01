@@ -135,11 +135,12 @@ class SavedStickerPage extends ConsumerWidget {
                           ),
                         ),
                         placeholder: (context, url) => SizedBox(
+                          width: 100.0.w,
+                          height: 100.0.h,
                           child: Shimmer.fromColors(
                             baseColor: Colors.grey[300]!,
                             highlightColor: Colors.grey[100]!,
                             child: Container(
-                              width: double.infinity,
                               decoration: BoxDecoration(
                                 color: Colors.grey[300],
                               ),
@@ -158,11 +159,12 @@ class SavedStickerPage extends ConsumerWidget {
                 child: CachedNetworkImage(
                   imageUrl: stickers[selectedSticker],
                   placeholder: (context, url) => SizedBox(
+                    width: 100.0.w,
+                    height: 100.0.h,
                     child: Shimmer.fromColors(
                       baseColor: Colors.grey[300]!,
                       highlightColor: Colors.grey[100]!,
                       child: Container(
-                        width: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.grey[300],
                         ),

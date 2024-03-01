@@ -210,7 +210,9 @@ class _PayWallState extends ConsumerState<PayWall> {
                               end: Alignment.bottomRight,
                             ),
                             borderRadius: BorderRadius.circular(8.r),
-                            onPressed: () {},
+                            onPressed: () {
+                              // purchase package
+                            },
                             child: Padding(
                               padding: EdgeInsets.all(12.0.h),
                               child: Text(

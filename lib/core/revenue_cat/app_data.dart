@@ -3,6 +3,7 @@ class AppData {
 
   bool entitlementIsActive = false;
   String appUserID = '';
+  int dailyUsageLimit = 0;
 
   factory AppData() {
     return _appData;

@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:in_app_review/in_app_review.dart';
+import 'package:stickerai/core/revenue_cat/app_data.dart';
+import 'package:stickerai/features/paywall/paywall.dart';
 import 'package:stickerai/localization/language_provider.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
 import 'package:stickerai/src/shared/extensions/extension.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
-SliverWoltModalSheetPage settingSheet() {
+SliverWoltModalSheetPage settingSheet(BuildContext context) {
   return WoltModalSheetPage(
     backgroundColor: Colors.black,
     isTopBarLayerAlwaysVisible: true,
@@ -40,47 +41,71 @@ SliverWoltModalSheetPage settingSheet() {
       child: Column(
         children: [
           22.rH,
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 12.w),
-            width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(16.r)),
-              gradient: const LinearGradient(
-                colors: [
-                  Colors.orangeAccent,
-                  Colors.redAccent,
-                  Colors.purpleAccent,
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
+          if (!appData.entitlementIsActive) ...[
+            GestureDetector(
+              onTap: () {
+                showModalBottomSheet(
+                  useRootNavigator: true,
+                  isDismissible: true,
+                  isScrollControlled: true,
+                  backgroundColor: Colors.black,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
+                  ),
+                  context: context,
+                  builder: (BuildContext context) {
+                    return StatefulBuilder(
+                      builder: (BuildContext context, StateSetter setModalState) {
+                        return const PayWall();
+                      },
+                    );
+                  },
+                );
+                return;
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 12.w),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(16.r)),
+                  gradient: const LinearGradient(
+                    colors: [
+                      Colors.orangeAccent,
+                      Colors.redAccent,
+                      Colors.purpleAccent,
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        tr.upgradeToPro,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      8.rH,
+                      Text(
+                        tr.upgradeToProDescription,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Text(
-                    tr.upgradeToPro,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  8.rH,
-                  Text(
-                    tr.upgradeToProDescription,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.sp,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          ],
           20.rH,
           IntrinsicHeight(
             child: Row(
