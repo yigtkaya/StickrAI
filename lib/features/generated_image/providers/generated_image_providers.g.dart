@@ -10,10 +10,13 @@ String _$selectedStickerHash() => r'01d0c17e89a66cbde298609e520c44aaf2c77a66';
 
 /// See also [SelectedSticker].
 @ProviderFor(SelectedSticker)
-final selectedStickerProvider = AutoDisposeNotifierProvider<SelectedSticker, int>.internal(
+final selectedStickerProvider =
+    AutoDisposeNotifierProvider<SelectedSticker, int>.internal(
   SelectedSticker.new,
   name: r'selectedStickerProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product') ? null : _$selectedStickerHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$selectedStickerHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
@@ -23,10 +26,12 @@ String _$stickersHash() => r'e92492dcc59fe4e867fbd49322bab76ec111b960';
 
 /// See also [Stickers].
 @ProviderFor(Stickers)
-final stickersProvider = AutoDisposeNotifierProvider<Stickers, List<String>>.internal(
+final stickersProvider =
+    AutoDisposeNotifierProvider<Stickers, List<String>>.internal(
   Stickers.new,
   name: r'stickersProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product') ? null : _$stickersHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$stickersHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

@@ -11,7 +11,8 @@ _$UrlsImpl _$$UrlsImplFromJson(Map<String, dynamic> json) => _$UrlsImpl(
       cancel: json['cancel'] as String?,
     );
 
-Map<String, dynamic> _$$UrlsImplToJson(_$UrlsImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$$UrlsImplToJson(_$UrlsImpl instance) =>
+    <String, dynamic>{
       'get': instance.urlsGet,
       'cancel': instance.cancel,
     };

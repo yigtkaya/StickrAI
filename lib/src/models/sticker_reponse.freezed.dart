@@ -29,12 +29,14 @@ mixin _$StickerResponse {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $StickerResponseCopyWith<StickerResponse> get copyWith => throw _privateConstructorUsedError;
+  $StickerResponseCopyWith<StickerResponse> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $StickerResponseCopyWith<$Res> {
-  factory $StickerResponseCopyWith(StickerResponse value, $Res Function(StickerResponse) then) =
+  factory $StickerResponseCopyWith(
+          StickerResponse value, $Res Function(StickerResponse) then) =
       _$StickerResponseCopyWithImpl<$Res, StickerResponse>;
   @useResult
   $Res call(
@@ -44,7 +46,8 @@ abstract class $StickerResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StickerResponseCopyWithImpl<$Res, $Val extends StickerResponse> implements $StickerResponseCopyWith<$Res> {
+class _$StickerResponseCopyWithImpl<$Res, $Val extends StickerResponse>
+    implements $StickerResponseCopyWith<$Res> {
   _$StickerResponseCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -77,8 +80,10 @@ class _$StickerResponseCopyWithImpl<$Res, $Val extends StickerResponse> implemen
 }
 
 /// @nodoc
-abstract class _$$StickerResponseImplCopyWith<$Res> implements $StickerResponseCopyWith<$Res> {
-  factory _$$StickerResponseImplCopyWith(_$StickerResponseImpl value, $Res Function(_$StickerResponseImpl) then) =
+abstract class _$$StickerResponseImplCopyWith<$Res>
+    implements $StickerResponseCopyWith<$Res> {
+  factory _$$StickerResponseImplCopyWith(_$StickerResponseImpl value,
+          $Res Function(_$StickerResponseImpl) then) =
       __$$StickerResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -89,9 +94,11 @@ abstract class _$$StickerResponseImplCopyWith<$Res> implements $StickerResponseC
 }
 
 /// @nodoc
-class __$$StickerResponseImplCopyWithImpl<$Res> extends _$StickerResponseCopyWithImpl<$Res, _$StickerResponseImpl>
+class __$$StickerResponseImplCopyWithImpl<$Res>
+    extends _$StickerResponseCopyWithImpl<$Res, _$StickerResponseImpl>
     implements _$$StickerResponseImplCopyWith<$Res> {
-  __$$StickerResponseImplCopyWithImpl(_$StickerResponseImpl _value, $Res Function(_$StickerResponseImpl) _then)
+  __$$StickerResponseImplCopyWithImpl(
+      _$StickerResponseImpl _value, $Res Function(_$StickerResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -127,7 +134,8 @@ class _$StickerResponseImpl implements _StickerResponse {
       @JsonKey(name: "succes") this.status})
       : _output = output;
 
-  factory _$StickerResponseImpl.fromJson(Map<String, dynamic> json) => _$$StickerResponseImplFromJson(json);
+  factory _$StickerResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StickerResponseImplFromJson(json);
 
   @override
   @JsonKey(name: "error")
@@ -165,13 +173,17 @@ class _$StickerResponseImpl implements _StickerResponse {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(error), const DeepCollectionEquality().hash(_output), status);
+      runtimeType,
+      const DeepCollectionEquality().hash(error),
+      const DeepCollectionEquality().hash(_output),
+      status);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$StickerResponseImplCopyWith<_$StickerResponseImpl> get copyWith =>
-      __$$StickerResponseImplCopyWithImpl<_$StickerResponseImpl>(this, _$identity);
+      __$$StickerResponseImplCopyWithImpl<_$StickerResponseImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -187,7 +199,8 @@ abstract class _StickerResponse implements StickerResponse {
       @JsonKey(name: "output") final List<String>? output,
       @JsonKey(name: "succes") final bool? status}) = _$StickerResponseImpl;
 
-  factory _StickerResponse.fromJson(Map<String, dynamic> json) = _$StickerResponseImpl.fromJson;
+  factory _StickerResponse.fromJson(Map<String, dynamic> json) =
+      _$StickerResponseImpl.fromJson;
 
   @override
   @JsonKey(name: "error")
@@ -200,5 +213,6 @@ abstract class _StickerResponse implements StickerResponse {
   bool? get status;
   @override
   @JsonKey(ignore: true)
-  _$$StickerResponseImplCopyWith<_$StickerResponseImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$StickerResponseImplCopyWith<_$StickerResponseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

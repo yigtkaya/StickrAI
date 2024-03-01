@@ -8,6 +8,7 @@ import 'package:stickerai/src/shared/constants/asset_constants.dart';
 import 'package:stickerai/src/shared/extensions/build_context_extension.dart';
 import 'package:stickerai/src/shared/extensions/extension.dart';
 import 'package:stickerai/src/shared/helpers/route_helper.dart';
+import 'package:stickerai/src/shared/widgets/button/custom_elevated_button.dart';
 
 class PayWall extends ConsumerStatefulWidget {
   const PayWall({super.key});
@@ -35,7 +36,8 @@ class _PayWallState extends ConsumerState<PayWall> {
 
   @override
   Widget build(BuildContext context) {
-    final offers = ref.read(fetchOffersProvider);
+    final offers = ref.watch(fetchOffersProvider);
+    final selectedPackage = ref.watch(selectedPackageProvider);
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -62,7 +64,7 @@ class _PayWallState extends ConsumerState<PayWall> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  100.rH,
+                  180.rH,
                   Text(
                     'Get Premium Access',
                     style: TextStyle(
@@ -141,72 +143,83 @@ class _PayWallState extends ConsumerState<PayWall> {
                       ],
                     ),
                   ),
-                  24.rH,
+                  36.rH,
                   offers.when(
                     data: (data) {
-                      final weekly = data.first.weekly;
-                      final monthly = data.first.monthly;
                       return Column(
                         children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: AppColors.lightColor,
-                                width: 1.r,
-                              ),
-                              borderRadius: BorderRadius.circular(12.r),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 8.0.w, vertical: 14.h),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Monthly',
-                                    style: TextStyle(
-                                      fontSize: 18.sp,
-                                      color: AppColors.neutralWhite,
+                          ListView.separated(
+                            padding: EdgeInsets.zero,
+                            itemCount: data.first.availablePackages.length,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            separatorBuilder: (context, index) => 18.rH,
+                            itemBuilder: (context, index) {
+                              final package = data.first.availablePackages[index];
+                              return GestureDetector(
+                                onTap: () {
+                                  ref.read(selectedPackageProvider.notifier).set(package);
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    border: selectedPackage == package
+                                        ? Border.all(
+                                            color: AppColors.lightColor,
+                                            width: 1.r,
+                                          )
+                                        : Border.all(
+                                            color: AppColors.greyBackground,
+                                            width: 1.r,
+                                          ),
+                                    borderRadius: BorderRadius.circular(12.r),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 8.0.w, vertical: 14.h),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          package.storeProduct.title,
+                                          style: TextStyle(
+                                            fontSize: 18.sp,
+                                            color: AppColors.neutralWhite,
+                                          ),
+                                        ),
+                                        Text(
+                                          package.storeProduct.priceString,
+                                          style: TextStyle(
+                                            fontSize: 18.sp,
+                                            color: AppColors.neutralWhite,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  Text(
-                                    '\$9.99',
-                                    style: TextStyle(
-                                      fontSize: 18.sp,
-                                      color: AppColors.neutralWhite,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                                ),
+                              );
+                            },
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: AppColors.lightColor,
-                                width: 1.r,
-                              ),
-                              borderRadius: BorderRadius.circular(12.r),
+                          60.rH,
+                          MyElevatedButton(
+                            gradient: const LinearGradient(
+                              colors: [
+                                Colors.orange,
+                                Colors.purpleAccent,
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
                             ),
+                            borderRadius: BorderRadius.circular(8.r),
+                            onPressed: () {},
                             child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 8.0.w, vertical: 14.h),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Monthly',
-                                    style: TextStyle(
-                                      fontSize: 18.sp,
-                                      color: AppColors.neutralWhite,
-                                    ),
-                                  ),
-                                  Text(
-                                    '\$9.99',
-                                    style: TextStyle(
-                                      fontSize: 18.sp,
-                                      color: AppColors.neutralWhite,
-                                    ),
-                                  ),
-                                ],
+                              padding: EdgeInsets.all(12.0.h),
+                              child: Text(
+                                'Subscribe',
+                                style: TextStyle(
+                                  color: AppColors.neutralWhite,
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
@@ -217,89 +230,7 @@ class _PayWallState extends ConsumerState<PayWall> {
                       return const Text('Something went wrong');
                     },
                     loading: () {
-                      return Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {});
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: AppColors.lightColor,
-                                  width: 1.r,
-                                ),
-                                borderRadius: BorderRadius.circular(12.r),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 12.0.w, vertical: 14.h),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'Monthly',
-                                      style: TextStyle(
-                                        fontSize: 18.sp,
-                                        color: AppColors.neutralWhite,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Text(
-                                      '\$9.99',
-                                      style: TextStyle(
-                                        fontSize: 18.sp,
-                                        color: AppColors.neutralWhite,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                          16.rH,
-                          Container(
-                            decoration: BoxDecoration(
-                              color: AppColors.greyBackground,
-                              border: Border.all(
-                                color: AppColors.neutralWhite,
-                                width: 1.r,
-                              ),
-                              borderRadius: BorderRadius.circular(12.r),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 5,
-                                  blurRadius: 7,
-                                  offset: Offset(0, 3), // changes position of shadow
-                                ),
-                              ],
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 8.0.w, vertical: 24.h),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Monthly',
-                                    style: TextStyle(
-                                      fontSize: 18.sp,
-                                      color: AppColors.neutralWhite,
-                                    ),
-                                  ),
-                                  Text(
-                                    '\$9.99',
-                                    style: TextStyle(
-                                      fontSize: 18.sp,
-                                      color: AppColors.neutralWhite,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      );
+                      return const CircularProgressIndicator();
                     },
                   ),
                 ],

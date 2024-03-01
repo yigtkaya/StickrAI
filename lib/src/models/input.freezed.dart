@@ -44,7 +44,8 @@ mixin _$Input {
 
 /// @nodoc
 abstract class $InputCopyWith<$Res> {
-  factory $InputCopyWith(Input value, $Res Function(Input) then) = _$InputCopyWithImpl<$Res, Input>;
+  factory $InputCopyWith(Input value, $Res Function(Input) then) =
+      _$InputCopyWithImpl<$Res, Input>;
   @useResult
   $Res call(
       {@JsonKey(name: "steps") int? steps,
@@ -58,7 +59,8 @@ abstract class $InputCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$InputCopyWithImpl<$Res, $Val extends Input> implements $InputCopyWith<$Res> {
+class _$InputCopyWithImpl<$Res, $Val extends Input>
+    implements $InputCopyWith<$Res> {
   _$InputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -117,7 +119,9 @@ class _$InputCopyWithImpl<$Res, $Val extends Input> implements $InputCopyWith<$R
 
 /// @nodoc
 abstract class _$$InputImplCopyWith<$Res> implements $InputCopyWith<$Res> {
-  factory _$$InputImplCopyWith(_$InputImpl value, $Res Function(_$InputImpl) then) = __$$InputImplCopyWithImpl<$Res>;
+  factory _$$InputImplCopyWith(
+          _$InputImpl value, $Res Function(_$InputImpl) then) =
+      __$$InputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -132,9 +136,12 @@ abstract class _$$InputImplCopyWith<$Res> implements $InputCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$InputImplCopyWithImpl<$Res> extends _$InputCopyWithImpl<$Res, _$InputImpl>
+class __$$InputImplCopyWithImpl<$Res>
+    extends _$InputCopyWithImpl<$Res, _$InputImpl>
     implements _$$InputImplCopyWith<$Res> {
-  __$$InputImplCopyWithImpl(_$InputImpl _value, $Res Function(_$InputImpl) _then) : super(_value, _then);
+  __$$InputImplCopyWithImpl(
+      _$InputImpl _value, $Res Function(_$InputImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -198,7 +205,8 @@ class _$InputImpl implements _Input {
       @JsonKey(name: "negative_prompt") this.negativePrompt,
       @JsonKey(name: "seed") this.seed});
 
-  factory _$InputImpl.fromJson(Map<String, dynamic> json) => _$$InputImplFromJson(json);
+  factory _$InputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InputImplFromJson(json);
 
   @override
   @JsonKey(name: "steps")
@@ -240,20 +248,23 @@ class _$InputImpl implements _Input {
             (identical(other.height, height) || other.height == height) &&
             (identical(other.prompt, prompt) || other.prompt == prompt) &&
             (identical(other.upscale, upscale) || other.upscale == upscale) &&
-            (identical(other.upscaleSteps, upscaleSteps) || other.upscaleSteps == upscaleSteps) &&
-            (identical(other.negativePrompt, negativePrompt) || other.negativePrompt == negativePrompt) &&
+            (identical(other.upscaleSteps, upscaleSteps) ||
+                other.upscaleSteps == upscaleSteps) &&
+            (identical(other.negativePrompt, negativePrompt) ||
+                other.negativePrompt == negativePrompt) &&
             (identical(other.seed, seed) || other.seed == seed));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, steps, width, height, prompt, upscale, upscaleSteps, negativePrompt, seed);
+  int get hashCode => Object.hash(runtimeType, steps, width, height, prompt,
+      upscale, upscaleSteps, negativePrompt, seed);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InputImplCopyWith<_$InputImpl> get copyWith => __$$InputImplCopyWithImpl<_$InputImpl>(this, _$identity);
+  _$$InputImplCopyWith<_$InputImpl> get copyWith =>
+      __$$InputImplCopyWithImpl<_$InputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -302,5 +313,6 @@ abstract class _Input implements Input {
   int? get seed;
   @override
   @JsonKey(ignore: true)
-  _$$InputImplCopyWith<_$InputImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$InputImplCopyWith<_$InputImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

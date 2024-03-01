@@ -20,18 +20,21 @@ mixin _$DioState {
   String get locale => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DioStateCopyWith<DioState> get copyWith => throw _privateConstructorUsedError;
+  $DioStateCopyWith<DioState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DioStateCopyWith<$Res> {
-  factory $DioStateCopyWith(DioState value, $Res Function(DioState) then) = _$DioStateCopyWithImpl<$Res, DioState>;
+  factory $DioStateCopyWith(DioState value, $Res Function(DioState) then) =
+      _$DioStateCopyWithImpl<$Res, DioState>;
   @useResult
   $Res call({Dio dioClient, String locale});
 }
 
 /// @nodoc
-class _$DioStateCopyWithImpl<$Res, $Val extends DioState> implements $DioStateCopyWith<$Res> {
+class _$DioStateCopyWithImpl<$Res, $Val extends DioState>
+    implements $DioStateCopyWith<$Res> {
   _$DioStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -59,8 +62,10 @@ class _$DioStateCopyWithImpl<$Res, $Val extends DioState> implements $DioStateCo
 }
 
 /// @nodoc
-abstract class _$$DioStateImplCopyWith<$Res> implements $DioStateCopyWith<$Res> {
-  factory _$$DioStateImplCopyWith(_$DioStateImpl value, $Res Function(_$DioStateImpl) then) =
+abstract class _$$DioStateImplCopyWith<$Res>
+    implements $DioStateCopyWith<$Res> {
+  factory _$$DioStateImplCopyWith(
+          _$DioStateImpl value, $Res Function(_$DioStateImpl) then) =
       __$$DioStateImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -68,9 +73,12 @@ abstract class _$$DioStateImplCopyWith<$Res> implements $DioStateCopyWith<$Res> 
 }
 
 /// @nodoc
-class __$$DioStateImplCopyWithImpl<$Res> extends _$DioStateCopyWithImpl<$Res, _$DioStateImpl>
+class __$$DioStateImplCopyWithImpl<$Res>
+    extends _$DioStateCopyWithImpl<$Res, _$DioStateImpl>
     implements _$$DioStateImplCopyWith<$Res> {
-  __$$DioStateImplCopyWithImpl(_$DioStateImpl _value, $Res Function(_$DioStateImpl) _then) : super(_value, _then);
+  __$$DioStateImplCopyWithImpl(
+      _$DioStateImpl _value, $Res Function(_$DioStateImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -111,7 +119,8 @@ class _$DioStateImpl implements _DioState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DioStateImpl &&
-            (identical(other.dioClient, dioClient) || other.dioClient == dioClient) &&
+            (identical(other.dioClient, dioClient) ||
+                other.dioClient == dioClient) &&
             (identical(other.locale, locale) || other.locale == locale));
   }
 
@@ -126,7 +135,9 @@ class _$DioStateImpl implements _DioState {
 }
 
 abstract class _DioState implements DioState {
-  const factory _DioState({required final Dio dioClient, required final String locale}) = _$DioStateImpl;
+  const factory _DioState(
+      {required final Dio dioClient,
+      required final String locale}) = _$DioStateImpl;
 
   @override
   Dio get dioClient;
@@ -134,5 +145,6 @@ abstract class _DioState implements DioState {
   String get locale;
   @override
   @JsonKey(ignore: true)
-  _$$DioStateImplCopyWith<_$DioStateImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$DioStateImplCopyWith<_$DioStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

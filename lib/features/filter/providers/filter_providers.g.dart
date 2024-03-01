@@ -10,10 +10,13 @@ String _$isUpscaleEnabledHash() => r'247969f0993890a13096f0db0269154650dbdf54';
 
 /// See also [IsUpscaleEnabled].
 @ProviderFor(IsUpscaleEnabled)
-final isUpscaleEnabledProvider = AutoDisposeNotifierProvider<IsUpscaleEnabled, bool>.internal(
+final isUpscaleEnabledProvider =
+    AutoDisposeNotifierProvider<IsUpscaleEnabled, bool>.internal(
   IsUpscaleEnabled.new,
   name: r'isUpscaleEnabledProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product') ? null : _$isUpscaleEnabledHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$isUpscaleEnabledHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

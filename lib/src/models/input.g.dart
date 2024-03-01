@@ -17,7 +17,8 @@ _$InputImpl _$$InputImplFromJson(Map<String, dynamic> json) => _$InputImpl(
       seed: json['seed'] as int?,
     );
 
-Map<String, dynamic> _$$InputImplToJson(_$InputImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$$InputImplToJson(_$InputImpl instance) =>
+    <String, dynamic>{
       'steps': instance.steps,
       'width': instance.width,
       'height': instance.height,

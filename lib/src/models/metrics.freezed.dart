@@ -32,13 +32,17 @@ mixin _$Metrics {
 
 /// @nodoc
 abstract class $MetricsCopyWith<$Res> {
-  factory $MetricsCopyWith(Metrics value, $Res Function(Metrics) then) = _$MetricsCopyWithImpl<$Res, Metrics>;
+  factory $MetricsCopyWith(Metrics value, $Res Function(Metrics) then) =
+      _$MetricsCopyWithImpl<$Res, Metrics>;
   @useResult
-  $Res call({@JsonKey(name: "predict_time") double? predictTime, @JsonKey(name: "total_time") double? totalTime});
+  $Res call(
+      {@JsonKey(name: "predict_time") double? predictTime,
+      @JsonKey(name: "total_time") double? totalTime});
 }
 
 /// @nodoc
-class _$MetricsCopyWithImpl<$Res, $Val extends Metrics> implements $MetricsCopyWith<$Res> {
+class _$MetricsCopyWithImpl<$Res, $Val extends Metrics>
+    implements $MetricsCopyWith<$Res> {
   _$MetricsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -67,17 +71,23 @@ class _$MetricsCopyWithImpl<$Res, $Val extends Metrics> implements $MetricsCopyW
 
 /// @nodoc
 abstract class _$$MetricsImplCopyWith<$Res> implements $MetricsCopyWith<$Res> {
-  factory _$$MetricsImplCopyWith(_$MetricsImpl value, $Res Function(_$MetricsImpl) then) =
+  factory _$$MetricsImplCopyWith(
+          _$MetricsImpl value, $Res Function(_$MetricsImpl) then) =
       __$$MetricsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: "predict_time") double? predictTime, @JsonKey(name: "total_time") double? totalTime});
+  $Res call(
+      {@JsonKey(name: "predict_time") double? predictTime,
+      @JsonKey(name: "total_time") double? totalTime});
 }
 
 /// @nodoc
-class __$$MetricsImplCopyWithImpl<$Res> extends _$MetricsCopyWithImpl<$Res, _$MetricsImpl>
+class __$$MetricsImplCopyWithImpl<$Res>
+    extends _$MetricsCopyWithImpl<$Res, _$MetricsImpl>
     implements _$$MetricsImplCopyWith<$Res> {
-  __$$MetricsImplCopyWithImpl(_$MetricsImpl _value, $Res Function(_$MetricsImpl) _then) : super(_value, _then);
+  __$$MetricsImplCopyWithImpl(
+      _$MetricsImpl _value, $Res Function(_$MetricsImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -101,9 +111,12 @@ class __$$MetricsImplCopyWithImpl<$Res> extends _$MetricsCopyWithImpl<$Res, _$Me
 /// @nodoc
 @JsonSerializable()
 class _$MetricsImpl implements _Metrics {
-  const _$MetricsImpl({@JsonKey(name: "predict_time") this.predictTime, @JsonKey(name: "total_time") this.totalTime});
+  const _$MetricsImpl(
+      {@JsonKey(name: "predict_time") this.predictTime,
+      @JsonKey(name: "total_time") this.totalTime});
 
-  factory _$MetricsImpl.fromJson(Map<String, dynamic> json) => _$$MetricsImplFromJson(json);
+  factory _$MetricsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MetricsImplFromJson(json);
 
   @override
   @JsonKey(name: "predict_time")
@@ -122,8 +135,10 @@ class _$MetricsImpl implements _Metrics {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MetricsImpl &&
-            (identical(other.predictTime, predictTime) || other.predictTime == predictTime) &&
-            (identical(other.totalTime, totalTime) || other.totalTime == totalTime));
+            (identical(other.predictTime, predictTime) ||
+                other.predictTime == predictTime) &&
+            (identical(other.totalTime, totalTime) ||
+                other.totalTime == totalTime));
   }
 
   @JsonKey(ignore: true)
@@ -133,7 +148,8 @@ class _$MetricsImpl implements _Metrics {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MetricsImplCopyWith<_$MetricsImpl> get copyWith => __$$MetricsImplCopyWithImpl<_$MetricsImpl>(this, _$identity);
+  _$$MetricsImplCopyWith<_$MetricsImpl> get copyWith =>
+      __$$MetricsImplCopyWithImpl<_$MetricsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -158,5 +174,6 @@ abstract class _Metrics implements Metrics {
   double? get totalTime;
   @override
   @JsonKey(ignore: true)
-  _$$MetricsImplCopyWith<_$MetricsImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$MetricsImplCopyWith<_$MetricsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

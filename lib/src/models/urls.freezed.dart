@@ -32,13 +32,17 @@ mixin _$Urls {
 
 /// @nodoc
 abstract class $UrlsCopyWith<$Res> {
-  factory $UrlsCopyWith(Urls value, $Res Function(Urls) then) = _$UrlsCopyWithImpl<$Res, Urls>;
+  factory $UrlsCopyWith(Urls value, $Res Function(Urls) then) =
+      _$UrlsCopyWithImpl<$Res, Urls>;
   @useResult
-  $Res call({@JsonKey(name: "get") String? urlsGet, @JsonKey(name: "cancel") String? cancel});
+  $Res call(
+      {@JsonKey(name: "get") String? urlsGet,
+      @JsonKey(name: "cancel") String? cancel});
 }
 
 /// @nodoc
-class _$UrlsCopyWithImpl<$Res, $Val extends Urls> implements $UrlsCopyWith<$Res> {
+class _$UrlsCopyWithImpl<$Res, $Val extends Urls>
+    implements $UrlsCopyWith<$Res> {
   _$UrlsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -67,15 +71,22 @@ class _$UrlsCopyWithImpl<$Res, $Val extends Urls> implements $UrlsCopyWith<$Res>
 
 /// @nodoc
 abstract class _$$UrlsImplCopyWith<$Res> implements $UrlsCopyWith<$Res> {
-  factory _$$UrlsImplCopyWith(_$UrlsImpl value, $Res Function(_$UrlsImpl) then) = __$$UrlsImplCopyWithImpl<$Res>;
+  factory _$$UrlsImplCopyWith(
+          _$UrlsImpl value, $Res Function(_$UrlsImpl) then) =
+      __$$UrlsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: "get") String? urlsGet, @JsonKey(name: "cancel") String? cancel});
+  $Res call(
+      {@JsonKey(name: "get") String? urlsGet,
+      @JsonKey(name: "cancel") String? cancel});
 }
 
 /// @nodoc
-class __$$UrlsImplCopyWithImpl<$Res> extends _$UrlsCopyWithImpl<$Res, _$UrlsImpl> implements _$$UrlsImplCopyWith<$Res> {
-  __$$UrlsImplCopyWithImpl(_$UrlsImpl _value, $Res Function(_$UrlsImpl) _then) : super(_value, _then);
+class __$$UrlsImplCopyWithImpl<$Res>
+    extends _$UrlsCopyWithImpl<$Res, _$UrlsImpl>
+    implements _$$UrlsImplCopyWith<$Res> {
+  __$$UrlsImplCopyWithImpl(_$UrlsImpl _value, $Res Function(_$UrlsImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -99,9 +110,12 @@ class __$$UrlsImplCopyWithImpl<$Res> extends _$UrlsCopyWithImpl<$Res, _$UrlsImpl
 /// @nodoc
 @JsonSerializable()
 class _$UrlsImpl implements _Urls {
-  const _$UrlsImpl({@JsonKey(name: "get") this.urlsGet, @JsonKey(name: "cancel") this.cancel});
+  const _$UrlsImpl(
+      {@JsonKey(name: "get") this.urlsGet,
+      @JsonKey(name: "cancel") this.cancel});
 
-  factory _$UrlsImpl.fromJson(Map<String, dynamic> json) => _$$UrlsImplFromJson(json);
+  factory _$UrlsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UrlsImplFromJson(json);
 
   @override
   @JsonKey(name: "get")
@@ -131,7 +145,8 @@ class _$UrlsImpl implements _Urls {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UrlsImplCopyWith<_$UrlsImpl> get copyWith => __$$UrlsImplCopyWithImpl<_$UrlsImpl>(this, _$identity);
+  _$$UrlsImplCopyWith<_$UrlsImpl> get copyWith =>
+      __$$UrlsImplCopyWithImpl<_$UrlsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -142,8 +157,9 @@ class _$UrlsImpl implements _Urls {
 }
 
 abstract class _Urls implements Urls {
-  const factory _Urls({@JsonKey(name: "get") final String? urlsGet, @JsonKey(name: "cancel") final String? cancel}) =
-      _$UrlsImpl;
+  const factory _Urls(
+      {@JsonKey(name: "get") final String? urlsGet,
+      @JsonKey(name: "cancel") final String? cancel}) = _$UrlsImpl;
 
   factory _Urls.fromJson(Map<String, dynamic> json) = _$UrlsImpl.fromJson;
 
@@ -155,5 +171,6 @@ abstract class _Urls implements Urls {
   String? get cancel;
   @override
   @JsonKey(ignore: true)
-  _$$UrlsImplCopyWith<_$UrlsImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$UrlsImplCopyWith<_$UrlsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
