@@ -28,7 +28,7 @@ mixin Environment {
   //common variables
   String entitlementId = "premium";
   // numbers 1212
-  String appleAppId = '1234567890';
+  String appleAppId = '6478646169';
 
   // app name
   String appleAppName = 'Stickrai';

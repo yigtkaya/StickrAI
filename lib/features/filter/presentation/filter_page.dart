@@ -407,6 +407,7 @@ class FilterPage extends ConsumerWidget {
                   }
                   showDialog(
                     context: context,
+                    barrierDismissible: false,
                     builder: (context) => const LoadingDialog(),
                   );
 

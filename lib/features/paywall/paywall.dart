@@ -15,7 +15,7 @@ class PayWall extends ConsumerStatefulWidget {
   static const routeName = '/paywall';
 
   static Route<bool> route() {
-    return RouteHelper.slide(
+    return RouteHelper.slideUp(
       builder: (_) => const PayWall(),
       settings: const RouteSettings(
         name: routeName,
@@ -62,6 +62,7 @@ class _PayWallState extends ConsumerState<PayWall> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  100.rH,
                   Text(
                     'Get Premium Access',
                     style: TextStyle(
@@ -143,6 +144,8 @@ class _PayWallState extends ConsumerState<PayWall> {
                   24.rH,
                   offers.when(
                     data: (data) {
+                      final weekly = data.first.weekly;
+                      final monthly = data.first.monthly;
                       return Column(
                         children: [
                           Container(
@@ -214,7 +217,89 @@ class _PayWallState extends ConsumerState<PayWall> {
                       return const Text('Something went wrong');
                     },
                     loading: () {
-                      return const Center(child: CircularProgressIndicator());
+                      return Column(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {});
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: AppColors.lightColor,
+                                  width: 1.r,
+                                ),
+                                borderRadius: BorderRadius.circular(12.r),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 12.0.w, vertical: 14.h),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'Monthly',
+                                      style: TextStyle(
+                                        fontSize: 18.sp,
+                                        color: AppColors.neutralWhite,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      '\$9.99',
+                                      style: TextStyle(
+                                        fontSize: 18.sp,
+                                        color: AppColors.neutralWhite,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          16.rH,
+                          Container(
+                            decoration: BoxDecoration(
+                              color: AppColors.greyBackground,
+                              border: Border.all(
+                                color: AppColors.neutralWhite,
+                                width: 1.r,
+                              ),
+                              borderRadius: BorderRadius.circular(12.r),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: Offset(0, 3), // changes position of shadow
+                                ),
+                              ],
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 8.0.w, vertical: 24.h),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Monthly',
+                                    style: TextStyle(
+                                      fontSize: 18.sp,
+                                      color: AppColors.neutralWhite,
+                                    ),
+                                  ),
+                                  Text(
+                                    '\$9.99',
+                                    style: TextStyle(
+                                      fontSize: 18.sp,
+                                      color: AppColors.neutralWhite,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
                     },
                   ),
                 ],

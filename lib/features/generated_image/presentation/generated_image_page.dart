@@ -16,6 +16,7 @@ import 'package:stickerai/features/generated_image/providers/generated_image_pro
 import 'package:stickerai/features/landing/providers/landing_providers.dart';
 import 'package:stickerai/localization/language_provider.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
+import 'package:stickerai/src/shared/dialog/loading_dialog.dart';
 import 'package:stickerai/src/shared/extensions/build_context_extension.dart';
 import 'package:stickerai/src/shared/extensions/extension.dart';
 import 'package:stickerai/src/shared/extensions/list_extension.dart';
@@ -234,6 +235,12 @@ class GeneratedStickerPage extends ConsumerWidget {
                   Expanded(
                     child: GestureDetector(
                       onTap: () async {
+                        showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (context) => const LoadingDialog(),
+                        );
+
                         final response = await ref.read(generateStickerProvider(promptController.text).future);
                         if (response.output.isNotNullOrEmpty) {
                           context.pushAndRemoveUntil(

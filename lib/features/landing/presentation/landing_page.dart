@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gradient_borders/gradient_borders.dart';
+import 'package:stickerai/features/filter/presentation/filter_page.dart';
 import 'package:stickerai/features/generated_image/presentation/generated_image_page.dart';
 import 'package:stickerai/features/landing/providers/landing_providers.dart';
 import 'package:stickerai/features/paywall/paywall.dart';
@@ -62,6 +63,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         actions: [
@@ -201,6 +203,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                       }
                       showDialog(
                         context: context,
+                        barrierDismissible: false,
                         builder: (context) => const LoadingDialog(),
                       );
 

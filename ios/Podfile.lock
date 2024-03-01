@@ -1,4 +1,8 @@
 PODS:
+  - Adapty (2.9.6)
+  - adapty_flutter (2.9.3):
+    - Adapty (= 2.9.6)
+    - Flutter
   - app_links (0.0.1):
     - Flutter
   - connectivity_plus (0.0.1):
@@ -247,6 +251,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - adapty_flutter (from `.symlinks/plugins/adapty_flutter/ios`)
   - app_links (from `.symlinks/plugins/app_links/ios`)
   - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
@@ -276,6 +281,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Adapty
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
@@ -303,6 +309,8 @@ SPEC REPOS:
     - Toast
 
 EXTERNAL SOURCES:
+  adapty_flutter:
+    :path: ".symlinks/plugins/adapty_flutter/ios"
   app_links:
     :path: ".symlinks/plugins/app_links/ios"
   connectivity_plus:
@@ -355,6 +363,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
+  Adapty: 18325c1f4d69ead08042e1c03218d2cc3f9b9693
+  adapty_flutter: 2499028dcada42dcf8849341ca6fd4cc697d6d24
   app_links: 5ef33d0d295a89d9d16bb81b0e3b0d5f70d6c875
   connectivity_plus: bf0076dd84a130856aa636df1c71ccaff908fa1d
   device_info_plus: c6fb39579d0f423935b0c9ce7ee2f44b71b9fce6
