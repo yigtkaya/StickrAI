@@ -11,11 +11,14 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:saver_gallery/saver_gallery.dart';
 import 'package:stickerai/core/dependecy_injections/global_di_holders.dart';
 import 'package:stickerai/core/local_storage/storage_key.dart';
+import 'package:stickerai/core/revenue_cat/app_data.dart';
 import 'package:stickerai/features/filter/presentation/filter_page.dart';
 import 'package:stickerai/features/generated_image/providers/generated_image_providers.dart';
 import 'package:stickerai/features/landing/providers/landing_providers.dart';
+import 'package:stickerai/features/paywall/repository/paywall_repository.dart';
 import 'package:stickerai/localization/language_provider.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
+import 'package:stickerai/src/shared/dialog/freemium_dialog.dart';
 import 'package:stickerai/src/shared/dialog/loading_dialog.dart';
 import 'package:stickerai/src/shared/extensions/build_context_extension.dart';
 import 'package:stickerai/src/shared/extensions/extension.dart';
@@ -235,22 +238,41 @@ class GeneratedStickerPage extends ConsumerWidget {
                   Expanded(
                     child: GestureDetector(
                       onTap: () async {
+                        if (!appData.entitlementIsActive) {
+                          showDialog(
+                            context: context,
+                            barrierDismissible: true,
+                            builder: (context) => FreemiumWarningDialog(
+                              prompt: prompt,
+                            ),
+                          );
+                          return;
+                        }
+
                         showDialog(
                           context: context,
                           barrierDismissible: false,
                           builder: (context) => const LoadingDialog(),
                         );
 
-                        final response = await ref.read(generateStickerProvider(promptController.text).future);
-                        if (response.output.isNotNullOrEmpty) {
-                          context.pushAndRemoveUntil(
+                        final stickerResponse = await ref.read(generateStickerProvider(prompt).future);
+                        if (stickerResponse.output.isNotNullOrEmpty) {
+                          final lastActionTime = DateTime.now();
+                          appData.remainingUsageLimit -= 1;
+                          ref.read(purhcaseRepositoryProvider).saveDataToFirestore(
+                                appData.remainingUsageLimit,
+                                lastActionTime,
+                              );
+                          context.pop();
+                          context.push(
                             GeneratedStickerPage.route(
-                              response.output ?? [],
-                              promptController.text,
+                              stickerResponse.output ?? [],
+                              prompt,
                             ),
                           );
                         } else {
-                          ref.read(isLoadingProvider.notifier).changeLoading();
+                          context.pop();
+
                           FToast().init(context).showToast(
                                 gravity: ToastGravity.BOTTOM,
                                 toastDuration: const Duration(seconds: 2),
@@ -264,7 +286,7 @@ class GeneratedStickerPage extends ConsumerWidget {
                                     padding: EdgeInsets.all(12.0.h),
                                     child: Center(
                                       child: Text(
-                                        response.error.toString(),
+                                        stickerResponse.error.toString(),
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 18.sp,

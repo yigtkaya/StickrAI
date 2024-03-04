@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stickerai/src/shared/dialog/alert_button.dart';
+import 'package:stickerai/src/shared/widgets/button/alert_button.dart';
 import 'package:stickerai/src/shared/extensions/build_context_extension.dart';
 
 class AppDialog extends StatelessWidget {

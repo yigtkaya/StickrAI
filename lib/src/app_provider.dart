@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
-import 'package:stickerai/core/dependecy_injections/global_di_holders.dart';
-import 'package:stickerai/core/local_storage/storage_key.dart';
 import 'package:stickerai/core/revenue_cat/app_data.dart';
+import 'package:stickerai/features/paywall/repository/paywall_repository.dart';
 import 'package:stickerai/src/app_state.dart';
 import 'package:stickerai/src/shared/extensions/string_extension.dart';
 import 'package:stickerai/src/shared/handlers/deep_link_handler.dart';
@@ -85,30 +84,8 @@ class AppNotifier extends StateNotifier<AppState> {
       appData.entitlementIsActive = entitlement?.isActive ?? false;
     });
 
-    appData.dailyUsageLimit = getDailyUsageLimit();
-  }
-
-  int getDailyUsageLimit() {
-    final dailyUsageLimit = hiveStorage.readInt(key: StorageKey.dailyUsageLimit);
-    final lastAction24HoursAgo = isLastActionMoreThan24HoursAgo();
-    if (lastAction24HoursAgo) {
-      hiveStorage.writeInt(key: StorageKey.dailyUsageLimit, value: 0);
-      return 0;
-    }
-    if (dailyUsageLimit == null) {
-      return 0;
-    }
-
-    return dailyUsageLimit;
-  }
-
-  bool isLastActionMoreThan24HoursAgo() {
-    final lastAction = hiveStorage.readInt(key: StorageKey.lastActionTime);
-    if (lastAction == null) {
-      return true;
-    }
-    final lastActionDateTime = DateTime.fromMillisecondsSinceEpoch(lastAction);
-    return DateTime.now().difference(lastActionDateTime).inHours > 24;
+    // if document with appData.appUserID exists, fetch data from Firestore else create a new document
+    await ref.read(purhcaseRepositoryProvider).fetchDataFromFirestore();
   }
 }
 

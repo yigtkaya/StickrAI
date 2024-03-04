@@ -83,6 +83,16 @@ extension StringExtension on String {
 
     return newStr;
   }
+
+  // "$RCAnonymousID:90bffec06f5d48fc9e6367caaed0f069"
+
+  String get getAnonymousID {
+    final split = this.split(':');
+    if (split.length > 1) {
+      return split[1];
+    }
+    return '';
+  }
 }
 
 extension NullStringExtension on String? {

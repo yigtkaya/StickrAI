@@ -1,6 +1,9 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stickerai/core/dependecy_injections/global_di_holders.dart';
 import 'package:stickerai/core/local_storage/storage_key.dart';
@@ -10,6 +13,7 @@ import 'package:stickerai/src/shared/constants/app_color_constants.dart';
 import 'package:stickerai/src/shared/constants/asset_constants.dart';
 import 'package:stickerai/src/shared/extensions/build_context_extension.dart';
 import 'package:stickerai/src/shared/extensions/extension.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class OnboardingScreen extends StatelessWidget {
   final Function()? onTap;
@@ -141,8 +145,18 @@ class OnboardingScreen extends StatelessWidget {
   }
 }
 
-class OnboardingSecondScreen extends StatelessWidget {
+class OnboardingSecondScreen extends ConsumerStatefulWidget {
   const OnboardingSecondScreen({super.key});
+
+  @override
+  ConsumerState<OnboardingSecondScreen> createState() => _OnboardingSecondScreenState();
+}
+
+class _OnboardingSecondScreenState extends ConsumerState<OnboardingSecondScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -198,7 +212,7 @@ class OnboardingSecondScreen extends StatelessWidget {
               ),
               60.rH,
               GestureDetector(
-                onTap: () {
+                onTap: () async {
                   context.pushAndRemoveUntil(
                     BottomNavBar.route(),
                   );
@@ -254,14 +268,22 @@ class OnboardingSecondScreen extends StatelessWidget {
                       text: '${tr.termsAndConditions} - ',
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          /// TODO
+                          launchUrl(
+                            Uri.parse(
+                              "https://yigtkaya.github.io/StickerAiTermsAndConditions.html",
+                            ),
+                          );
                         },
                     ),
                     TextSpan(
                       text: tr.privacyPolicy,
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          /// TODO
+                          launchUrl(
+                            Uri.parse(
+                              "https://yigtkaya.github.io/StickerAiPrivacyPolicy.html",
+                            ),
+                          );
                         },
                     ),
                   ],

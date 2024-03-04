@@ -10,11 +10,12 @@ import 'package:stickerai/core/revenue_cat/app_data.dart';
 import 'package:stickerai/features/filter/presentation/filter_page.dart';
 import 'package:stickerai/features/generated_image/presentation/generated_image_page.dart';
 import 'package:stickerai/features/landing/providers/landing_providers.dart';
-import 'package:stickerai/features/paywall/paywall.dart';
+import 'package:stickerai/features/paywall/repository/paywall_repository.dart';
 import 'package:stickerai/features/settings/settings_sheet.dart';
 import 'package:stickerai/localization/language_provider.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
 import 'package:stickerai/src/shared/constants/asset_constants.dart';
+import 'package:stickerai/src/shared/dialog/freemium_dialog.dart';
 import 'package:stickerai/src/shared/dialog/loading_dialog.dart';
 import 'package:stickerai/src/shared/extensions/build_context_extension.dart';
 import 'package:stickerai/src/shared/extensions/extension.dart';
@@ -176,39 +177,6 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                 children: [
                   GestureDetector(
                     onTap: () async {
-                      if (appData.dailyUsageLimit >= 3) {
-                        showModalBottomSheet(
-                          useRootNavigator: true,
-                          isDismissible: true,
-                          isScrollControlled: true,
-                          backgroundColor: Colors.black,
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const PayWall();
-                          },
-                        );
-                        return;
-                      }
-                      if (!appData.entitlementIsActive) {
-                        showModalBottomSheet(
-                          useRootNavigator: true,
-                          isDismissible: true,
-                          isScrollControlled: true,
-                          backgroundColor: Colors.black,
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
-                          ),
-                          context: context,
-                          builder: (BuildContext context) {
-                            return StatefulBuilder(
-                              builder: (BuildContext context, StateSetter setModalState) {
-                                return const PayWall();
-                              },
-                            );
-                          },
-                        );
-                        return;
-                      }
                       if (_promptTextController.text.isEmpty) {
                         FToast().init(context).showToast(
                               gravity: ToastGravity.BOTTOM,
@@ -235,6 +203,17 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                             );
                         return;
                       }
+                      if (!appData.entitlementIsActive) {
+                        showDialog(
+                          context: context,
+                          barrierDismissible: true,
+                          builder: (context) => FreemiumWarningDialog(
+                            prompt: _promptTextController.text,
+                          ),
+                        );
+                        return;
+                      }
+
                       showDialog(
                         context: context,
                         barrierDismissible: false,
@@ -244,6 +223,12 @@ class _LandingPageState extends ConsumerState<LandingPage> {
                       final stickerResponse =
                           await ref.read(generateStickerProvider(_promptTextController.text).future);
                       if (stickerResponse.output.isNotNullOrEmpty) {
+                        final lastActionTime = DateTime.now();
+                        appData.remainingUsageLimit -= 1;
+                        ref.read(purhcaseRepositoryProvider).saveDataToFirestore(
+                              appData.remainingUsageLimit,
+                              lastActionTime,
+                            );
                         context.pop();
                         context.push(
                           GeneratedStickerPage.route(

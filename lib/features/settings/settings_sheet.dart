@@ -8,6 +8,7 @@ import 'package:stickerai/features/paywall/paywall.dart';
 import 'package:stickerai/localization/language_provider.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
 import 'package:stickerai/src/shared/extensions/extension.dart';
+import 'package:stickerai/src/shared/extensions/string_extension.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
@@ -267,7 +268,8 @@ SliverWoltModalSheetPage settingSheet(BuildContext context) {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "ID:{user.id}",
+                appData.appUserID.getAnonymousID,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: AppColors.neutralWhite,
                   fontSize: 14.sp,
@@ -276,8 +278,8 @@ SliverWoltModalSheetPage settingSheet(BuildContext context) {
               IconButton(
                 onPressed: () {
                   Clipboard.setData(
-                    const ClipboardData(
-                      text: "ID:{user.id}",
+                    ClipboardData(
+                      text: appData.appUserID,
                     ),
                   );
                 },
