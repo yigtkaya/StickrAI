@@ -15,7 +15,7 @@ Future<void> setupProdDI() async {
 Future<void> firebaseConfig() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-    name: "stickerai-70831",
+    name: DefaultFirebaseOptions.currentPlatform.projectId,
   );
   FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
   await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);

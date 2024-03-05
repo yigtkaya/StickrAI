@@ -22,6 +22,7 @@ class FreemiumWarningDialog extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.read(purhcaseRepositoryProvider).fetchDataFromFirestore();
     return Dialog(
       elevation: 0,
       backgroundColor: Colors.black,

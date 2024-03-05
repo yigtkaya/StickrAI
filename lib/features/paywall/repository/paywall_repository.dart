@@ -38,6 +38,8 @@ class PurhcaseRepository {
       'dailyUsageLimit': remainingUsage,
       'lastActionTime': lastActionTime,
     });
+
+    appData.remainingUsageLimit = remainingUsage;
   }
 
 // Fetch data from Firestore using device ID
