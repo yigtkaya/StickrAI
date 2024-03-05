@@ -13,7 +13,7 @@ import 'package:stickerai/src/app_state.dart';
 import 'package:stickerai/src/providers/theme_provider.dart';
 import 'package:stickerai/src/shared/constants/app_constants.dart';
 import 'package:stickerai/src/shared/constants/app_design_constant.dart';
-import 'package:stickerai/src/shared/dialog/app_dialog.dart';
+import 'package:stickerai/src/shared/widgets/dialog/app_dialog.dart';
 import 'package:stickerai/src/shared/observer/custom_route_observer.dart';
 import 'package:stickerai/src/shared/widgets/exception/exception_on_launch.dart';
 import 'package:url_launcher/url_launcher.dart';

@@ -11,7 +11,7 @@ import 'package:stickerai/features/paywall/paywall.dart';
 import 'package:stickerai/features/paywall/repository/paywall_repository.dart';
 import 'package:stickerai/localization/language_provider.dart';
 import 'package:stickerai/src/shared/constants/app_color_constants.dart';
-import 'package:stickerai/src/shared/dialog/loading_dialog.dart';
+import 'package:stickerai/src/shared/widgets/dialog/loading_dialog.dart';
 import 'package:stickerai/src/shared/extensions/build_context_extension.dart';
 import 'package:stickerai/src/shared/extensions/extension.dart';
 import 'package:stickerai/src/shared/extensions/list_extension.dart';
